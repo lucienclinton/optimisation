@@ -1,65 +1,60 @@
 <!DOCTYPE html>
-<html lang="zh-CN">
+<html>
 <head>
   <meta charset="UTF-8">
-  <title>最优化学习笔记</title>
-  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Optimisation</title>
+  <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/docsify/lib/themes/vue.css">
+  <style>/* 正文字体放大 */  body {font-size: 20px; /* 默认是14px，建议16-18px */}
+            /* 代码块字体放大 */  pre, code {font-size: 14px !important;}
+            /* 数学公式放大 */  .MathJax {font-size: 20px !important;}
+  </style>
 
-  <!-- Docsify 样式 -->
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/docsify/themes/vue.css" />
+  <!-- MathJax 配置 -->
+  <script>
+    window.MathJax = {
+      tex: {inlineMath: [['$', '$'], ['\\(', '\\)']],  /*行内公式分隔符*/displayMath: [['$$', '$$']],/*块级公式分隔符*/tags: 'ams',/*启用 \tag*/},
+      options: {skipHtmlTags: ['script', 'noscript', 'style', 'textarea', 'pre']}
+    };
+  </script>
 
-  <!-- KaTeX 样式 -->
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css" />
 
-  <!-- Mermaid 样式 -->
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/mermaid/dist/mermaid.min.css" />
+  <!-- 加载 MathJax -->
+  <script src="//cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
 </head>
-
 <body>
   <div id="app">加载中...</div>
 
-  <!-- Docsify 本体 -->
-  <script src="https://cdn.jsdelivr.net/npm/docsify/lib/docsify.min.js"></script>
-
-  <!-- KaTeX 自动渲染 -->
-  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js"></script>
-  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js"
-          onload="renderMathInElement(document.body, {delimiters: [
-            {left: '$$', right: '$$', display: true},
-            {left: '$', right: '$', display: false}
-          ]});">
-  </script>
-
-  <!-- Mermaid 脚本 -->
-  <script src="https://cdn.jsdelivr.net/npm/mermaid/dist/mermaid.min.js"></script>
-
-  <!-- Docsify 配置：合并 KaTeX、Mermaid 支持 -->
+  <!-- Docsify 配置 -->
   <script>
-    var num = 0;
-    mermaid.initialize({ startOnLoad: false });
-
     window.$docsify = {
-      name: '最优化学习笔记',
+      name: 'lucienrua',
       repo: 'https://github.com/lucienclinton/optimisation',
       loadSidebar: true,
-      subMaxLevel: 2,
-      alias: {
-        '/.*/_sidebar.md': '/_sidebar.md'
-      },
       markdown: {
         renderer: {
-          code: function (code, lang) {
+          code: function(code, lang) {
             if (lang === "mermaid") {
-              return (
-                '<div class="mermaid">' + mermaid.render("mermaid-" + (num++), code) + "</div>"
-              );
-            }
+              const id = "mermaid-" + Math.random().toString(36).substr(2, 9);
+              return `<div id="${id}" class="mermaid">${code}</div>`;}
             return this.origin.code.apply(this, arguments);
           }
         }
-      }
+      },
+      plugins: [
+        function(hook, vm) {
+          hook.doneEach(function() {
+            // 渲染 Mermaid
+            if (window.mermaid) mermaid.init(undefined, '.mermaid');
+            // 强制 MathJax 重新渲染（解决公式未解析的问题）
+            if (window.MathJax) MathJax.typesetPromise();
+          });
+        }
+      ]
     };
   </script>
+
+  <!-- 加载 Docsify 和 Mermaid -->
+  <script src="//cdn.jsdelivr.net/npm/docsify/lib/docsify.min.js"></script>
+  <script src="//cdn.jsdelivr.net/npm/mermaid/dist/mermaid.min.js"></script>
 </body>
 </html>
