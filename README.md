@@ -12,7 +12,101 @@
 
 ## 遇到的各种问题
 
-#### 1.{}在Typora行内公式和行外公式环境下可见但在网页中出错——
+### 1. Typora常用快捷键——
+
+1. Ctrl+数字几——几级标题大小，0代表段落正文，可以选中内容使用
+
+2. Ctrl+A——全选
+
+3. Ctrl+B——加粗，可以选中内容，如果是光标则自动判断要加粗的部分
+
+4. Ctrl+I——斜体，同上
+
+5. Ctrl+T——表格
+
+6. Ctrl+S——保存
+
+7. Ctrl+E——选中这一行
+
+8. Ctrl+F——查找
+
+9. F3 / Enter——查找下一个
+   Shift + F3 / Shift + Enter——查找上一个
+
+10. Ctrl+K——加入链接
+
+11. Ctrl+M或者$$$+Esc——内联数学公式inline math
+
+12. Ctrl+U——下划线
+
+13. Ctrl+W——关闭
+
+14. Ctrl+/——源代码模式
+
+15. Ctrl+\——清除格式
+
+16. Ctrl+,——偏好设置
+
+
+12. \>或者Ctrl+Shift+Q——引用格式
+
+    > 如此
+
+13. *+Space或者-+Space或者Ctrl+Shift+]——无序列表（在干净环境下是一级）
+
+    - 如此，这是二级（这里已经有一级10.了），然后Enter→Delete→-+Space，如下
+      - 这是三级无序
+        * 四级和三级一样
+
+14. Ctrl+Shift+I——插入图片
+
+15. Ctrl+Shift+S——另存为
+
+16. Ctrl+Shift+F——把系統輸入法改爲繁體
+
+17. Ctrl+Shift+K或者```+Enter——Code代码框，可以选中内容使用
+
+18. Ctrl+Shift+1——展示/不展示大纲
+
+19. Ctrl+Shift+2——文档列表视图
+
+20. Ctrl+Shift+3——文件树视图
+
+21. Ctrl+Shift+L——显示\隐藏侧边栏
+
+22. Ctrl+Shift+M——行外数学公式
+
+23. Ctrl+Shift+up/down——向上\下选一行
+
+24. Ctrl+Shift+left/right——向左\右选一个token
+
+25. Ctrl+shift+\`——`代码块格式`
+
+26. Alt+Shift+5或者\~\~内容~~——删除线
+
+27. ---+Enter——分割线
+
+28. [toc]+Enter——打印目录
+
+29. \[\^注释概要\]:注释内容——加入注释
+
+    [^name]:input description here
+
+30. Tab/Shift+Tab——向前\向后缩进
+
+31. \<sub>内容\</sub>——下标
+
+32. \<sup>内容\</sup>——上标
+
+33. \==内容==——高亮
+
+34. \<center>+内容+\</center>——居中
+
+35. \<p align="right">内容\</p>——右对齐（左对齐同理）
+
+
+
+### 2. {}在Typora行内公式和行外公式环境下可见但在网页中出错——
 
 在Typora里面显示如下：
 
