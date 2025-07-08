@@ -90,7 +90,7 @@
 
 29. \[\^注释概要\]:注释内容——加入注释
 
-    [^name]:input description here
+    [^name]: input description here
 
 30. Tab/Shift+Tab——向前\向后缩进
 
@@ -154,6 +154,18 @@ $$ X = \left\lbrace x \in \mathbb{R}^n ,\middle|, \begin{aligned} &c_i(x) \leq 0
    &c_i(x) = 0,    && i = m+1,m+2， \dots, m+\ell
    \end{aligned}
    \right\rbrace$
+
+
+
+## 顺路完成的目标
+
+1. 学会盲打，并尽可能提高效率
+
+2. 补充机器学习的知识点，并完成深度学习和强化学习的部分
+
+   
+
+
 
 
 
