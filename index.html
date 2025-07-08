@@ -5,9 +5,12 @@
   <title>Optimisation</title>
   <link rel="icon" href="./images/icon.jpg" type="image/jpeg">
   <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/docsify/lib/themes/vue.css">
-  <style>/* 正文字体放大 */  body {font-size: 20px; /* 默认是14px，建议16-18px */}
+
+  <style>
+            /* 正文字体放大 */  body {font-size: 20px; /* 默认是14px，建议16-18px */}
             /* 代码块字体放大 */  pre, code {font-size: 14px !important;}
-            /* 数学公式放大 */  .MathJax {font-size: 20px !important;}
+            /* 数学公式放大 */  mjx-container[jax="CHTML"] {font-size: 20px !important;}
+            /* 调整代码块宽度 */  .markdown-section pre, .markdown-section pre code {width: 90%;max-width: 90%; margin: 0 auto; display: block;}
   </style>
 
   <!-- MathJax 配置 -->
@@ -17,9 +20,12 @@
       options: {skipHtmlTags: ['script', 'noscript', 'style', 'textarea', 'pre']}};
   </script>
 
-
   <!-- 加载 MathJax -->
-  <script src="//cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+  <script type="text/javascript" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+  </script>
+
+<!--  <script src="//cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>-->
+<script src="https://cdn.jsdelivr.net/npm/docsify-plugin-figure-caption"></script>
 </head>
 
 
@@ -29,6 +35,7 @@
   <!-- Docsify 配置 -->
   <script>
     window.$docsify = {
+
       name: 'lucienrua',
       repo: 'https://github.com/lucienclinton/optimisation',
       loadSidebar: true,
@@ -50,8 +57,8 @@
             if (window.mermaid) mermaid.init(undefined, '.mermaid');
             // 强制 MathJax 重新渲染（解决公式未解析的问题）
             if (window.MathJax) MathJax.typesetPromise();
-          });
-        }
+          });},
+
       ]
     };
   </script>

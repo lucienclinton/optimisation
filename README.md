@@ -110,7 +110,7 @@
 
 在Typora里面显示如下：
 
-![在Typora没有遇到问题](images/00-a大括号在Typora没有问题.png)
+![在Typora没有遇到问题](images/00a-大括号在Typora没有问题.png)
 
 但是在docsify架构的网页里面，虽然尝试使用了五种不同的架构方式：
 
@@ -128,7 +128,7 @@ $$ X = \left\lbrace x \in \mathbb{R}^n ,\middle|, \begin{aligned} &c_i(x) \leq 0
 
 但是都没有效果（其实第五个可以，但是还需要改一点）：
 
-![00-b大括号在docsify出现问题](images\00-b大括号在docsify出现问题.png)
+![大括号在docsify出现问题](images\00b-大括号在docsify出现问题.png)
 
 目前推测为docsify的**MathJax**在配置时误解了`\{`的含义，而且不能正确配对`\left`和`\right`
 
@@ -154,6 +154,30 @@ $$ X = \left\lbrace x \in \mathbb{R}^n ,\middle|, \begin{aligned} &c_i(x) \leq 0
    &c_i(x) = 0,    && i = m+1,m+2， \dots, m+\ell
    \end{aligned}
    \right\rbrace$
+
+### 3. 图片插入和放置
+
+```
+<div style="display:flex; justify-content:center;">
+  <img src="../images/01b-精确解u的分布.svg" style="width:400px; margin-right:10px;" />
+  <img src="../images/01b-ℓ1范数下解u1的分布.svg" style="width:400px; margin-right:10px;" />
+  <img src="../images/01c-ℓ2范数下解u2的分布.svg" style="width:400px;" />
+</div>
+```
+
+- 创建一个容器 `<div>`；设置 `display:flex` 表示这个容器中的内容按照 **横向（row）排列**；`justify-content:center` 表示让这几张图**整体水平居中对齐**。
+- 插入第一张图片；宽度设置为 `400px`；`margin-right:10px` 给右边加了10像素间距（避免和第二张图贴太近）。
+- 其余同理
+
+```
+<div style="display: flex; justify-content: center; margin-bottom: 20px;">
+  <img src="../images/01b-精确解u的分布.svg" style="width: 48%; margin-right: 4%;" />
+  <img src="../images/01b-ℓ1范数下解u1的分布.svg" style="width: 48%;" />
+</div>
+<div> 
+  <img src="../images/01c-ℓ2范数下解u2的分布.svg" style="width: 480%;" />
+</div>
+```
 
 
 
