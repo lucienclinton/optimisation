@@ -34,59 +34,58 @@
 
   <!-- Docsify 配置 -->
   <script>
-    window.$docsify = {
-      name: 'lucienrua',
-      repo: 'https://github.com/lucienclinton/optimisation',
-      lazyLoadImages: true,
-      loadSidebar: true,
-      subMaxLevel: 2,
-      markdown: {
-        renderer: {
-          code: function(code, lang) {
-            if (lang === "mermaid") {
-              const id = "mermaid-" + Math.random().toString(36).substr(2, 9);
-              return `<div id="${id}" class="mermaid">${code}</div>`;}
-            return this.origin.code.apply(this, arguments);
-          }
-        }
-      },
-      plugins: [
-        function(hook, vm) {
-          hook.doneEach(function() {
-            // 渲染 Mermaid
-            if (window.mermaid) mermaid.init(undefined, '.mermaid');
-            // 强制 MathJax 重新渲染（解决公式未解析的问题）
-            if (window.MathJax) MathJax.typesetPromise();
-          });},
-
-      ]
-    };
-  </script>
-
-  <!-- 强制 MathJax 重新渲染（解决公式未解析的问题）-->
-<script>
+  // 修正图片路径函数，把含有“images/”的src统一替换为绝对路径
   function fixImagePaths() {
-    const basePath = '/optimisation/images/';
+    const basePath = '/optimisation/images/';  // 你图片实际存放的根路径
     document.querySelectorAll('img').forEach(img => {
       const src = img.getAttribute('src');
+      // 如果src包含images/，提取文件名部分并替换成basePath开头的路径
       if (src && src.includes('images/')) {
-        // 提取文件名（images/后面的部分）
-        const fileName = src.split('images/').pop();
+        const fileName = src.split('images/').pop();  // 取images/后面的文件名及路径
         img.setAttribute('src', basePath + fileName);
       }
     });
   }
-  // 如果是 Docsify，确保每次页面切换后也修正
-  window.$docsify = window.$docsify || {};
-  window.$docsify.plugins = (window.$docsify.plugins || []).concat([
-    function(hook, vm) {
-      hook.doneEach(function() {
-        fixImagePaths();
-        if (window.MathJax) MathJax.typesetPromise();
-      });
-    }
-  ]);
+
+  // Docsify配置，所有设置都写在同一个对象里，避免多次赋值覆盖
+  window.$docsify = {
+    name: 'lucienrua',  // 网站名称
+    repo: 'https://github.com/lucienclinton/optimisation',  // 仓库地址
+    lazyLoadImages: true,  // 图片懒加载，提高性能
+    loadSidebar: true,     // 加载侧边栏
+    subMaxLevel: 2,        // 侧边栏子标题最大显示层级
+    relativePath: true,    // 允许相对路径解析，方便图片等资源引用
+    markdown: {
+      renderer: {
+        // 自定义代码块渲染，如果是mermaid绘图，则用mermaid渲染
+        code: function(code, lang) {
+          if (lang === "mermaid") {
+            const id = "mermaid-" + Math.random().toString(36).substr(2, 9);
+            return `<div id="${id}" class="mermaid">${code}</div>`;
+          }
+          // 其他代码块按默认渲染
+          return this.origin.code.apply(this, arguments);
+        }
+      }
+    },
+    plugins: [
+      // 自定义插件，页面每次切换后执行
+      function(hook, vm) {
+        hook.doneEach(function() {
+          // 如果有mermaid，初始化mermaid绘图
+          if (window.mermaid) mermaid.init(undefined, '.mermaid');
+          // 调用图片路径修正函数，修正所有图片src路径
+          fixImagePaths();
+          // 如果加载了MathJax，重新渲染数学公式
+          if (window.MathJax) MathJax.typesetPromise();
+        });
+      },
+      // 引入你单独加载的figure-caption插件，支持图片标题显示
+      window.$docsifyPluginFigureCaption
+    ]
+  };
 </script>
+
 
 
 
