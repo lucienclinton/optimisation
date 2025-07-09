@@ -65,6 +65,33 @@
     };
   </script>
 
+  <!-- 强制 MathJax 重新渲染（解决公式未解析的问题）-->
+<script>
+  function fixImagePaths() {
+    const basePath = '/optimisation/images/';
+    document.querySelectorAll('img').forEach(img => {
+      const src = img.getAttribute('src');
+      if (src && src.includes('images/')) {
+        // 提取文件名（images/后面的部分）
+        const fileName = src.split('images/').pop();
+        img.setAttribute('src', basePath + fileName);
+      }
+    });
+  }
+  // 如果是 Docsify，确保每次页面切换后也修正
+  window.$docsify = window.$docsify || {};
+  window.$docsify.plugins = (window.$docsify.plugins || []).concat([
+    function(hook, vm) {
+      hook.doneEach(function() {
+        fixImagePaths();
+        if (window.MathJax) MathJax.typesetPromise();
+      });
+    }
+  ]);
+</script>
+
+
+
   <!-- 加载 Docsify 和 Mermaid -->
   <script src="//cdn.jsdelivr.net/npm/docsify/lib/docsify.min.js"></script>
   <script src="//cdn.jsdelivr.net/npm/mermaid/dist/mermaid.min.js"></script>
