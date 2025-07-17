@@ -106,7 +106,7 @@
 
 
 
-### 2. {}在Typora行内公式和行外公式环境下可见但在网页中出错——
+### 2. 在Typora行内公式和行外公式环境下可见但在网页中出错——
 
 在Typora里面显示如下：
 
@@ -155,6 +155,8 @@ $$ X = \left\lbrace x \in \mathbb{R}^n ,\middle|, \begin{aligned} &c_i(x) \leq 0
    \end{aligned}
    \right\rbrace$
 
+3. 同理还有——换行或块级公式形单独写用 `\$\\displaystyle...\$` ，而不是`\\( ... \\)` 或`\\[ ... \\]`；范数符号 \| 用`\\Vert`
+
 ### 3. 图片插入和放置
 
 ```
@@ -188,8 +190,3 @@ $$ X = \left\lbrace x \in \mathbb{R}^n ,\middle|, \begin{aligned} &c_i(x) \leq 0
 2. 补充机器学习的知识点，并完成深度学习和强化学习的部分
 
    
-
-
-
-
-
