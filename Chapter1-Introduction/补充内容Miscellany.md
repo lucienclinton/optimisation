@@ -90,20 +90,32 @@
 设 $V$ 是域 $F$ 上的线性空间，下面列出七个由线性空间八条公理推导出的基本性质，并给出推导过程：
 
 1. **零元唯一性：** 若 $\boldsymbol{0}_1$ 与 $\boldsymbol{0}_2$ 均满足 $\forall \boldsymbol{\alpha} \in V$ 有 $\boldsymbol{\alpha} + \boldsymbol{0}_i = \boldsymbol{\alpha},\ \text{(i=1,2)}$，则 $\boldsymbol{0}_1 = \boldsymbol{0}_2$。
-    推导：$\boldsymbol{0}_1 \xlongequal{\text{$\boldsymbol{0}_2$ 是零元}} \boldsymbol{0}_1 + \boldsymbol{0}_2 \xlongequal{\text{$\boldsymbol{0}_1$ 是零元}} \boldsymbol{0}_2$，故零元唯一。
+
+    > $\boldsymbol{0}_1 \xlongequal{\text{$\boldsymbol{0}_2$ 是零元}} \boldsymbol{0}_1 + \boldsymbol{0}_2 \xlongequal{\text{$\boldsymbol{0}_1$ 是零元}} \boldsymbol{0}_2$，故零元唯一。
+
 2. **逆元唯一性：** $\forall \boldsymbol{\alpha} \in V$，$\exists$ 唯一的向量 $-\boldsymbol{\alpha}$ 使得 $\boldsymbol{\alpha} + (-\boldsymbol{\alpha}) = \boldsymbol{0}$。
-   推导：设 $\boldsymbol{\beta}, \boldsymbol{\gamma}$ 都是 $\boldsymbol{\alpha}$ 的加法逆元，即 $\boldsymbol{\alpha} + \boldsymbol{\beta} = \boldsymbol{0}$ 且 $\boldsymbol{\alpha} + \boldsymbol{\gamma} = \boldsymbol{0}$，则有$\boldsymbol{\beta} \xlongequal{\text{③零元定义}} \boldsymbol{\beta} + \boldsymbol{0} \xlongequal{\text{④逆元定义}} \boldsymbol{\beta} + (\boldsymbol{\alpha} + \boldsymbol{\gamma}) \xlongequal{\text{②结合律}} (\boldsymbol{\beta} + \boldsymbol{\alpha}) + \boldsymbol{\gamma} \xlongequal{\text{④逆元定义}} \boldsymbol{0} + \boldsymbol{\gamma} \xlongequal{\text{③零元定义}} \boldsymbol{\gamma}$，故逆元唯一。
+
+   > 设 $\boldsymbol{\beta}, \boldsymbol{\gamma}$ 都是 $\boldsymbol{\alpha}$ 的加法逆元，即 $\boldsymbol{\alpha} + \boldsymbol{\beta} = \boldsymbol{0}$ 且 $\boldsymbol{\alpha} + \boldsymbol{\gamma} = \boldsymbol{0}$，则有$\boldsymbol{\beta} \xlongequal{\text{③零元定义}} \boldsymbol{\beta} + \boldsymbol{0} \xlongequal{\text{④逆元定义}} \boldsymbol{\beta} + (\boldsymbol{\alpha} + \boldsymbol{\gamma}) \xlongequal{\text{②结合律}} (\boldsymbol{\beta} + \boldsymbol{\alpha}) + \boldsymbol{\gamma} \xlongequal{\text{④逆元定义}} \boldsymbol{0} + \boldsymbol{\gamma} \xlongequal{\text{③零元定义}} \boldsymbol{\gamma}$，故逆元唯一。
+
 3. **逆元的数乘等价定义：**设 $\boldsymbol{\alpha} \in V$，有 $-1 \cdot \boldsymbol{\alpha} = -\boldsymbol{\alpha}$（标量 $-1$ 乘以向量 $\boldsymbol{\alpha}$ 等于其逆元）。
-   推导：$\displaystyle \boldsymbol{\alpha} + (-1 \cdot \boldsymbol{\alpha}) = (1 + (-1)) \cdot \boldsymbol{\alpha} = 0 \cdot \boldsymbol{\alpha} = \boldsymbol{0} \quad \xrightarrow{\text{2逆元唯一性}} \quad -1 \cdot \boldsymbol{\alpha} = -\boldsymbol{\alpha}$。
+
+   > $\displaystyle \boldsymbol{\alpha} + (-1 \cdot \boldsymbol{\alpha}) = (1 + (-1)) \cdot \boldsymbol{\alpha} = 0 \cdot \boldsymbol{\alpha} = \boldsymbol{0} \quad \xrightarrow{\text{2逆元唯一性}} \quad -1 \cdot \boldsymbol{\alpha} = -\boldsymbol{\alpha}$。
+
 4. **向量加法的消去律：** 若 $\boldsymbol{\alpha} + \boldsymbol{\beta} = \boldsymbol{\gamma} + \boldsymbol{\beta}$，则 $\boldsymbol{\alpha} = \boldsymbol{\gamma}$。
-   推导：两边加上 $-\boldsymbol{\beta}$，有 $\boldsymbol{\alpha} + (\boldsymbol{\beta} + (-\boldsymbol{\beta})) = \boldsymbol{\gamma} + (\boldsymbol{\beta} + (-\boldsymbol{\beta}))$，即 $\boldsymbol{\alpha} + \boldsymbol{0} = \boldsymbol{\gamma} + \boldsymbol{0}$，所以 $\boldsymbol{\alpha} = \boldsymbol{\gamma}$。
+
+   > 两边加上 $-\boldsymbol{\beta}$，有 $\boldsymbol{\alpha} + (\boldsymbol{\beta} + (-\boldsymbol{\beta})) = \boldsymbol{\gamma} + (\boldsymbol{\beta} + (-\boldsymbol{\beta}))$，即 $\boldsymbol{\alpha} + \boldsymbol{0} = \boldsymbol{\gamma} + \boldsymbol{0}$，所以 $\boldsymbol{\alpha} = \boldsymbol{\gamma}$。
+
 5. **零标量乘任意向量等于零向量：** 对任意 $\boldsymbol{\alpha} \in V$，有 $0 \cdot \boldsymbol{\alpha} = \boldsymbol{0}$。
-    推导：$\displaystyle 0 \cdot \boldsymbol{\alpha} = (0 + 0) \cdot \boldsymbol{\alpha} = 0 \cdot \boldsymbol{\alpha} + 0 \cdot \boldsymbol{\alpha} \quad \xrightarrow{\text{4消去律}} \quad 0 \cdot \boldsymbol{\alpha} = \boldsymbol{0}$。
+
+    > $\displaystyle 0 \cdot \boldsymbol{\alpha} = (0 + 0) \cdot \boldsymbol{\alpha} = 0 \cdot \boldsymbol{\alpha} + 0 \cdot \boldsymbol{\alpha} \quad \xrightarrow{\text{4消去律}} \quad 0 \cdot \boldsymbol{\alpha} = \boldsymbol{0}$。
+
 6. **任意标量乘零向量等于零向量：** 对任意 $k \in F$，有 $k \cdot \boldsymbol{0} = \boldsymbol{0}$。
-    推导：$\displaystyle k \cdot \boldsymbol{0} \xlongequal{\text{③零元定义}} k \cdot (\boldsymbol{0} + \boldsymbol{0}) = k \cdot \boldsymbol{0} + k \cdot \boldsymbol{0} \quad \xrightarrow{4消去律} \quad \boldsymbol{0} = k \cdot \boldsymbol{0}$。
+
+    > $\displaystyle k \cdot \boldsymbol{0} \xlongequal{\text{③零元定义}} k \cdot (\boldsymbol{0} + \boldsymbol{0}) = k \cdot \boldsymbol{0} + k \cdot \boldsymbol{0} \quad \xrightarrow{4消去律} \quad \boldsymbol{0} = k \cdot \boldsymbol{0}$。
+
 7. **$k \cdot \boldsymbol{\alpha} = \boldsymbol{0}$ 的充要条件：** 若 $k \in F$，$\boldsymbol{\alpha} \in V$，则 $k \cdot \boldsymbol{\alpha} = \boldsymbol{0}$ 当且仅当 $k = 0$ 或 $\boldsymbol{\alpha} = \boldsymbol{0}$。
-    $\Rightarrow$：若 $k = 0$，显然成立；若 $k \neq 0$，则两边乘以 $k^{-1}$ 得 $\boldsymbol{0} = k^{-1} \boldsymbol{0} = k^{-1} (k \cdot \boldsymbol{\alpha}) = 1 \cdot \boldsymbol{\alpha} = \boldsymbol{\alpha}$，故 $\boldsymbol{\alpha} = \boldsymbol{0}$。
-    $\Leftarrow$：若 $k=0$ 或 $\boldsymbol{\alpha} = \boldsymbol{0}$，显然有 $k \cdot \boldsymbol{\alpha} = \boldsymbol{0}$。
+
+    > $\Rightarrow$：若 $k = 0$，显然成立；若 $k \neq 0$，则两边乘以 $k^{-1}$ 得 $\boldsymbol{0} = k^{-1} \boldsymbol{0} = k^{-1} (k \cdot \boldsymbol{\alpha}) = 1 \cdot \boldsymbol{\alpha} = \boldsymbol{\alpha}$，故 $\boldsymbol{\alpha} = \boldsymbol{0}$。<br>$\Leftarrow$：若 $k=0$ 或 $\boldsymbol{\alpha} = \boldsymbol{0}$，显然有 $k \cdot \boldsymbol{\alpha} = \boldsymbol{0}$。
 
 ------
 
@@ -125,48 +137,49 @@
 
 - 单个向量 $\boldsymbol{\alpha}$ 线性相关的充要条件是 $\boldsymbol{\alpha} = \boldsymbol{0}$；
   多个向量 $\boldsymbol{\alpha}_1, \dots, \boldsymbol{\alpha}_n$ 线性相关的充要条件是存在一个向量 $\boldsymbol{\alpha_i}$ 是其余向量 $\boldsymbol{\alpha_{i-}}$ 的线性组合
+  
 - 设向量组 $\boldsymbol{\alpha}_1, \dots, \boldsymbol{\alpha}_r$ 线性无关，若它们可以由 $\boldsymbol{\beta}_1, \dots, \boldsymbol{\beta}_s$ 线性表出，则有 $r \leq s$。
   推论：两个<u>线性无关</u>的、<u>等价</u>的向量组，其向量个数相同
-
-> 由题设，存在系数矩阵
->
-> $A = (l_{ij}) \in \mathbb{F}^{r \times s}$，使得 $\displaystyle \boldsymbol{\alpha}_i = \sum_{j=1}^s l_{ij} \boldsymbol{\beta}_j$，对 $i = 1, \dots, r$
->
-> 考虑矩阵语言表示，将向量 $\boldsymbol{\alpha}_1, \dots, \boldsymbol{\alpha}_r$ 列成矩阵
->  $\boldsymbol{A} = [\boldsymbol{\alpha}_1 \ \cdots \ \boldsymbol{\alpha}_r]$， $\boldsymbol{B} = [\boldsymbol{\beta}_1 \ \cdots \ \boldsymbol{\beta}_s]$，
->  则有
->  $\boldsymbol{A} = \boldsymbol{B} \cdot L^\top$，其中 $L^\top \in \mathbb{F}^{s \times r}$ 为系数矩阵的转置。
->
-> 因为 $\boldsymbol{\alpha}_1, \dots, \boldsymbol{\alpha}_r$ 线性无关，说明矩阵 $\boldsymbol{A}$ 的列向量线性无关，即 $\operatorname{rank}(\boldsymbol{A}) = r$。
->  而 $\boldsymbol{A} = \boldsymbol{B} \cdot L^\top$，所以 $\operatorname{rank}(\boldsymbol{A}) \leq \min \lbrace \operatorname{rank}(\boldsymbol{B}), \operatorname{rank}(L^\top) \rbrace \leq s$。
->  因此 $r = \operatorname{rank}(\boldsymbol{A}) \leq s$。
+  
+  > 由题设，存在系数矩阵
+  >
+  > $A = (l_{ij}) \in \mathbb{F}^{r \times s}$，使得 $\displaystyle \boldsymbol{\alpha}_i = \sum_{j=1}^s l_{ij} \boldsymbol{\beta}_j$，对 $i = 1, \dots, r$
+  >
+  > 考虑矩阵语言表示，将向量 $\boldsymbol{\alpha}_1, \dots, \boldsymbol{\alpha}_r$ 列成矩阵
+  > $\boldsymbol{A} = [\boldsymbol{\alpha}_1 \ \cdots \ \boldsymbol{\alpha}_r]$， $\boldsymbol{B} = [\boldsymbol{\beta}_1 \ \cdots \ \boldsymbol{\beta}_s]$，
+  > 则有
+  > $\boldsymbol{A} = \boldsymbol{B} \cdot L^\top$，其中 $L^\top \in \mathbb{F}^{s \times r}$ 为系数矩阵的转置。
+  >
+  > 因为 $\boldsymbol{\alpha}_1, \dots, \boldsymbol{\alpha}_r$ 线性无关，说明矩阵 $\boldsymbol{A}$ 的列向量线性无关，即 $\operatorname{rank}(\boldsymbol{A}) = r$。
+  > 而 $\boldsymbol{A} = \boldsymbol{B} \cdot L^\top$，所以 $\operatorname{rank}(\boldsymbol{A}) \leq \min \lbrace \operatorname{rank}(\boldsymbol{B}), \operatorname{rank}(L^\top) \rbrace \leq s$。
+  > 因此 $r = \operatorname{rank}(\boldsymbol{A}) \leq s$。
 
 - 若 $\lbrace \boldsymbol{\alpha}_1, \dots, \boldsymbol{\alpha}_r \rbrace$ 线性无关，而与 $\boldsymbol{\beta}$ 合并后线性相关，则 $\boldsymbol{\beta}$ 可被 $\lbrace \boldsymbol{\alpha}_1, \dots, \boldsymbol{\alpha}_r \rbrace$ 线性表出： $\displaystyle \boldsymbol{\beta} = k_1 \boldsymbol{\alpha}_1 + \cdots + k_r \boldsymbol{\alpha}_r$ ，且这个表示是唯一的。
 
-> 假设向量组 $\lbrace \boldsymbol{\alpha}_1, \dots, \boldsymbol{\alpha}_r, \boldsymbol{\beta} \rbrace$ 线性相关，
->  则存在不全为零的标量 $k_1, \dots, k_r, l$，使得
->  $k_1 \boldsymbol{\alpha}_1 + \cdots + k_r \boldsymbol{\alpha}_r + l \boldsymbol{\beta} = \boldsymbol{0}$。
->
-> 若 $l = 0$，则原式为
->  $k_1 \boldsymbol{\alpha}_1 + \cdots + k_r \boldsymbol{\alpha}_r = \boldsymbol{0}$，
->  但由 $\boldsymbol{\alpha}_1, \dots, \boldsymbol{\alpha}_r$ 线性无关知，必有 $k_1 = \cdots = k_r = 0$，
->  这与“$k_1, \dots, k_r, l$ 不全为零”矛盾，故 $l \neq 0$。
->
-> 将上式两边除以 $l$，得
->  $\boldsymbol{\beta} = -\dfrac{k_1}{l} \boldsymbol{\alpha}_1 - \cdots - \dfrac{k_r}{l} \boldsymbol{\alpha}_r$，
->  故 $\boldsymbol{\beta}$ 可由 $\boldsymbol{\alpha}_1, \dots, \boldsymbol{\alpha}_r$ 线性表出。
->
-> 接下来证明唯一性。
->
-> 假设存在两组系数 $\lbrace k_1, \dots, k_r \rbrace$ 与 $\lbrace k_1', \dots, k_r' \rbrace$，使得
->  $\boldsymbol{\beta} = k_1 \boldsymbol{\alpha}_1 + \cdots + k_r \boldsymbol{\alpha}_r = k_1' \boldsymbol{\alpha}_1 + \cdots + k_r' \boldsymbol{\alpha}_r$，
->  两式相减得
->  $(k_1 - k_1') \boldsymbol{\alpha}_1 + \cdots + (k_r - k_r') \boldsymbol{\alpha}_r = \boldsymbol{0}$。
->
-> 由 $\boldsymbol{\alpha}_1, \dots, \boldsymbol{\alpha}_r$ 线性无关，必有
->  $k_i - k_i' = 0$，即 $k_i = k_i'$，对所有 $i$ 成立。
->
-> 因此，$\boldsymbol{\beta}$ 的线性表出方式唯一。
+  > 假设向量组 $\lbrace \boldsymbol{\alpha}_1, \dots, \boldsymbol{\alpha}_r, \boldsymbol{\beta} \rbrace$ 线性相关，
+  > 则存在不全为零的标量 $k_1, \dots, k_r, l$，使得
+  > $k_1 \boldsymbol{\alpha}_1 + \cdots + k_r \boldsymbol{\alpha}_r + l \boldsymbol{\beta} = \boldsymbol{0}$。
+  >
+  > 若 $l = 0$，则原式为
+  > $k_1 \boldsymbol{\alpha}_1 + \cdots + k_r \boldsymbol{\alpha}_r = \boldsymbol{0}$，
+  > 但由 $\boldsymbol{\alpha}_1, \dots, \boldsymbol{\alpha}_r$ 线性无关知，必有 $k_1 = \cdots = k_r = 0$，
+  > 这与“$k_1, \dots, k_r, l$ 不全为零”矛盾，故 $l \neq 0$。
+  >
+  > 将上式两边除以 $l$，得
+  > $\boldsymbol{\beta} = -\dfrac{k_1}{l} \boldsymbol{\alpha}_1 - \cdots - \dfrac{k_r}{l} \boldsymbol{\alpha}_r$，
+  > 故 $\boldsymbol{\beta}$ 可由 $\boldsymbol{\alpha}_1, \dots, \boldsymbol{\alpha}_r$ 线性表出。
+  >
+  > 接下来证明唯一性。
+  >
+  > 假设存在两组系数 $\lbrace k_1, \dots, k_r \rbrace$ 与 $\lbrace k_1', \dots, k_r' \rbrace$，使得
+  > $\boldsymbol{\beta} = k_1 \boldsymbol{\alpha}_1 + \cdots + k_r \boldsymbol{\alpha}_r = k_1' \boldsymbol{\alpha}_1 + \cdots + k_r' \boldsymbol{\alpha}_r$，
+  > 两式相减得
+  > $(k_1 - k_1') \boldsymbol{\alpha}_1 + \cdots + (k_r - k_r') \boldsymbol{\alpha}_r = \boldsymbol{0}$。
+  >
+  > 由 $\boldsymbol{\alpha}_1, \dots, \boldsymbol{\alpha}_r$ 线性无关，必有
+  > $k_i - k_i' = 0$，即 $k_i = k_i'$，对所有 $i$ 成立。
+  >
+  > 因此，$\boldsymbol{\beta}$ 的线性表出方式唯一。
 
 ------
 
