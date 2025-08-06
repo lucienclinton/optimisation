@@ -181,7 +181,41 @@ $$ X = \left\lbrace x \in \mathbb{R}^n ,\middle|, \begin{aligned} &c_i(x) \leq 0
 </div>
 ```
 
+### 4. 等号和推出符号$A \underset{\text{2 逆元唯一性}}{\xRightarrow{\text{由(1)(2)}}} B$ 
 
+1. 等号，长度固定，注释在上（overset）
+   `A \overset{注释在上}{=} B`
+   $A \overset{注释在上}{=} B$
+
+2. 等号，长度固定，注释在下（underset）
+   `A \underset{注释在下}{=} B$`
+
+   $A \underset{注释在下}{=} B$
+
+3. 等号，长度固定，注释上下两侧（同时使用overset和underset）
+   $A \underset{注释在下}{\overset{注释在上}{=}}B$
+
+4. 左推右，长度固定，注释默认在上（Rightarrow）
+   `A \overset{\text{左推右，长度固定}}{\Rightarrow} B`
+   $A \overset{\text{左推右，长度固定}}{\Rightarrow} B$
+   如果换成rightarrow：$A \overset{\text{左推右，长度固定}}{\rightarrow} B$
+   如果换成Longrightarrow：$A \overset{\text{左推右，长度固定}}{\Longrightarrow} B$
+
+5. 等号，长度自适应，注释默认在上
+   `A \xlongequal{注释在下} B`
+   $A \xlongequal{注释在上} B$
+
+   如果想要注释在下：`A \underset{注释在下}{\xlongequal{}} B` ：$A \underset{注释在下}{\xlongequal{}} B$ 
+
+6. 左推右，长度自适应，注释默认在上（只有单横线\xrightarrow{}，双横线\xRightarrow{}只能在Typora用）
+
+   `A \xrightarrow{逆元唯一性} B`
+
+   $A \xrightarrow{逆元唯一性} B$
+
+   如果想要注释在下：`A \underset{注释在下}{\xrightarrow{}} B`：$A \underset{注释在下}{\xrightarrow{}} B$
+
+   如果想要两侧注释：`A \underset{在下}{\xrightarrow{注释在上}} B`：$A \underset{在下}{\xrightarrow{注释在上}} B$，（发现好像是根据underset的文本长度确定的，所以建议把“在下”的文本选长一点，“注释在上”的文本选短一点）
 
 ## 顺路完成的目标
 
