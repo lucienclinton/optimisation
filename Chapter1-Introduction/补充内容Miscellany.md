@@ -4,8 +4,6 @@
 
 ## 1.a 线性空间基础
 
----
-
 ### 1.a.α 集合、映射和运算：
 
 **集合——**交并补
@@ -111,21 +109,78 @@
 
 ## 1.b 维数、基与坐标
 
-------
-
 ### 1.b.α 线性组合与线性表出、线性相关与线性无关
 
 **线性组合**：设 $V$ 是域 $F$ 上的线性空间，$\boldsymbol{\alpha}_1, \boldsymbol{\alpha}_2, \ldots, \boldsymbol{\alpha}_n \in V$，$k_1, k_2, \ldots, k_n \in F$，则向量 $\displaystyle \boldsymbol{\beta} = k_1 \boldsymbol{\alpha}_1 + k_2 \boldsymbol{\alpha}_2 + \cdots + k_n \boldsymbol{\alpha}_n$ 称为 $\boldsymbol{\alpha}_1, \ldots, \boldsymbol{\alpha}_n$ 的一个**线性组合**，$k_i$ 称为相应的系数。
 
 **线性表出**：若存在一组系数 $k_1, \ldots, k_n$ 使得 $\boldsymbol{\beta} = k_1 \boldsymbol{\alpha}_1 + \cdots + k_n \boldsymbol{\alpha}_n$ 成立，则称 $\boldsymbol{\beta}$ **可由** $\boldsymbol{\alpha}_1, \ldots, \boldsymbol{\alpha}_n$ **线性表出**。
 
+**等价**：可以相互线性表出。具有<u>自反性</u>、<u>对称性</u>和<u>传递性</u>
+
 **线性相关**：设 $\boldsymbol{\alpha}_1, \ldots, \boldsymbol{\alpha}_n \in V$，若存在不全为零的 $k_1, \ldots, k_n \in F$，使得 $\displaystyle k_1 \boldsymbol{\alpha}_1 + \cdots + k_n \boldsymbol{\alpha}_n = \boldsymbol{0}$，则称这组向量**线性相关**
 
-线性无关：『设 $\boldsymbol{\alpha}_1, \ldots, \boldsymbol{\alpha}_n \in V$，若不存在不全为零的 $k_1, \ldots, k_n \in F$，使得 $\displaystyle k_1 \boldsymbol{\alpha}_1 + \cdots + k_n \boldsymbol{\alpha}_n = \boldsymbol{0}$ 』$\iff$『 仅有 $k_1 = \cdots = k_n = 0$ 能使线性组合等于 $\boldsymbol{0}$ 』，称这组向量**线性无关**。
+**线性无关**：『设 $\boldsymbol{\alpha}_1, \ldots, \boldsymbol{\alpha}_n \in V$，若不存在不全为零的 $k_1, \ldots, k_n \in F$，使得 $\displaystyle k_1 \boldsymbol{\alpha}_1 + \cdots + k_n \boldsymbol{\alpha}_n = \boldsymbol{0}$ 』$\iff$『 仅有 $k_1 = \cdots = k_n = 0$ 能使线性组合等于 $\boldsymbol{0}$ 』，称这组向量**线性无关**。
+
+**常用结论——**
+
+- 单个向量 $\boldsymbol{\alpha}$ 线性相关的充要条件是 $\boldsymbol{\alpha} = \boldsymbol{0}$；
+  多个向量 $\boldsymbol{\alpha}_1, \dots, \boldsymbol{\alpha}_n$ 线性相关的充要条件是存在一个向量 $\boldsymbol{\alpha_i}$ 是其余向量 $\boldsymbol{\alpha_{i-}}$ 的线性组合
+- 设向量组 $\boldsymbol{\alpha}_1, \dots, \boldsymbol{\alpha}_r$ 线性无关，若它们可以由 $\boldsymbol{\beta}_1, \dots, \boldsymbol{\beta}_s$ 线性表出，则有 $r \leq s$。
+  推论：两个<u>线性无关</u>的、<u>等价</u>的向量组，其向量个数相同
+
+> 由题设，存在系数矩阵
+>
+> $A = (l_{ij}) \in \mathbb{F}^{r \times s}$，使得 $\displaystyle \boldsymbol{\alpha}_i = \sum_{j=1}^s l_{ij} \boldsymbol{\beta}_j$，对 $i = 1, \dots, r$
+>
+> 考虑矩阵语言表示，将向量 $\boldsymbol{\alpha}_1, \dots, \boldsymbol{\alpha}_r$ 列成矩阵
+>  $\boldsymbol{A} = [\boldsymbol{\alpha}_1 \ \cdots \ \boldsymbol{\alpha}_r]$， $\boldsymbol{B} = [\boldsymbol{\beta}_1 \ \cdots \ \boldsymbol{\beta}_s]$，
+>  则有
+>  $\boldsymbol{A} = \boldsymbol{B} \cdot L^\top$，其中 $L^\top \in \mathbb{F}^{s \times r}$ 为系数矩阵的转置。
+>
+> 因为 $\boldsymbol{\alpha}_1, \dots, \boldsymbol{\alpha}_r$ 线性无关，说明矩阵 $\boldsymbol{A}$ 的列向量线性无关，即 $\operatorname{rank}(\boldsymbol{A}) = r$。
+>  而 $\boldsymbol{A} = \boldsymbol{B} \cdot L^\top$，所以 $\operatorname{rank}(\boldsymbol{A}) \leq \min \lbrace \operatorname{rank}(\boldsymbol{B}), \operatorname{rank}(L^\top) \rbrace \leq s$。
+>  因此 $r = \operatorname{rank}(\boldsymbol{A}) \leq s$。
+
+- 若 $\lbrace \boldsymbol{\alpha}_1, \dots, \boldsymbol{\alpha}_r \rbrace$ 线性无关，而与 $\boldsymbol{\beta}$ 合并后线性相关，则 $\boldsymbol{\beta}$ 可被 $\lbrace \boldsymbol{\alpha}_1, \dots, \boldsymbol{\alpha}_r \rbrace$ 线性表出： $\displaystyle \boldsymbol{\beta} = k_1 \boldsymbol{\alpha}_1 + \cdots + k_r \boldsymbol{\alpha}_r$ ，且这个表示是唯一的。
+
+> 假设向量组 $\lbrace \boldsymbol{\alpha}_1, \dots, \boldsymbol{\alpha}_r, \boldsymbol{\beta} \rbrace$ 线性相关，
+>  则存在不全为零的标量 $k_1, \dots, k_r, l$，使得
+>  $k_1 \boldsymbol{\alpha}_1 + \cdots + k_r \boldsymbol{\alpha}_r + l \boldsymbol{\beta} = \boldsymbol{0}$。
+>
+> 若 $l = 0$，则原式为
+>  $k_1 \boldsymbol{\alpha}_1 + \cdots + k_r \boldsymbol{\alpha}_r = \boldsymbol{0}$，
+>  但由 $\boldsymbol{\alpha}_1, \dots, \boldsymbol{\alpha}_r$ 线性无关知，必有 $k_1 = \cdots = k_r = 0$，
+>  这与“$k_1, \dots, k_r, l$ 不全为零”矛盾，故 $l \neq 0$。
+>
+> 将上式两边除以 $l$，得
+>  $\boldsymbol{\beta} = -\dfrac{k_1}{l} \boldsymbol{\alpha}_1 - \cdots - \dfrac{k_r}{l} \boldsymbol{\alpha}_r$，
+>  故 $\boldsymbol{\beta}$ 可由 $\boldsymbol{\alpha}_1, \dots, \boldsymbol{\alpha}_r$ 线性表出。
+>
+> 接下来证明唯一性。
+>
+> 假设存在两组系数 $\lbrace k_1, \dots, k_r \rbrace$ 与 $\lbrace k_1', \dots, k_r' \rbrace$，使得
+>  $\boldsymbol{\beta} = k_1 \boldsymbol{\alpha}_1 + \cdots + k_r \boldsymbol{\alpha}_r = k_1' \boldsymbol{\alpha}_1 + \cdots + k_r' \boldsymbol{\alpha}_r$，
+>  两式相减得
+>  $(k_1 - k_1') \boldsymbol{\alpha}_1 + \cdots + (k_r - k_r') \boldsymbol{\alpha}_r = \boldsymbol{0}$。
+>
+> 由 $\boldsymbol{\alpha}_1, \dots, \boldsymbol{\alpha}_r$ 线性无关，必有
+>  $k_i - k_i' = 0$，即 $k_i = k_i'$，对所有 $i$ 成立。
+>
+> 因此，$\boldsymbol{\beta}$ 的线性表出方式唯一。
 
 ------
 
-### 1.b.γ 向量组生成的子空间（张成空间）
+即每个 $\boldsymbol{\alpha}_i$ 都可以表示为 $\boldsymbol{\alpha}_i = l_{i1} \boldsymbol{\beta}_1 + \cdots + l_{is} \boldsymbol{\beta}_s$，则向量组 $\boldsymbol{\alpha}_1, \dots, \boldsymbol{\alpha}_r$ 是 $\boldsymbol{\beta}_1, \dots, \boldsymbol{\beta}_s$ 的线性组合，因此它们的张成空间包含于后者的张成空间。由于 $\boldsymbol{\alpha}_1, \dots, \boldsymbol{\alpha}_r$ 是线性无关的，因此它们张成 $r$ 维空间，而 $\boldsymbol{\beta}_1, \dots, \boldsymbol{\beta}_s$ 的张成空间维数最多为 $s$，由此推出 $r \leq s$。因此，如果两个向量组都线性无关，并且可以互相线性表出（即等价），则互相包含对方的张成空间，维数相等，故向量个数相等。
+
+我们严格证明下面两个命题：
+
+------
+
+
+
+------
+
+### 1.b.β 向量组生成的子空间（张成空间）
 
 若 $S = \lbrace \boldsymbol{\alpha}_1, \ldots, \boldsymbol{\alpha}_n \rbrace$ 是 $V$ 中一组向量，定义 $S$ 的所有线性组合组成的集合为
 
@@ -177,6 +232,109 @@ $\displaystyle [\boldsymbol{\beta}] = \begin{bmatrix}k_1 \ \vdots \ k_n \end{bma
 ------
 
 是否需要我继续整理 **1.c 子空间与向量组的秩**？也欢迎你就刚才内容提出反驳、补充或新的要求。
+
+
+
+
+
+
+
+明白，以下是完整的 **1.c 子空间与向量组的秩** 部分，延续你此前的风格与编号系统，分为三个小节：$\text{1.c.}\alpha$（定义与判别）、$\text{1.c.}\beta$（向量组的秩）、$\text{1.c.}\gamma$（子空间的和、交与维数公式）。
+
+------
+
+## 1.c 子空间与向量组的秩
+
+------
+
+### 1.c.α 子空间的定义与判别
+
+设 $V$ 是域 $F$ 上的线性空间。若 $U \subseteq V$ 是 $V$ 的一个非空子集，且在加法与数乘下封闭，并满足线性空间的八条运算公理，则称 $U$ 为 $V$ 的一个**子空间**（subspace）。
+
+**子空间判别准则（两步法）**：
+
+设 $U \subseteq V$，$V$ 是域 $F$ 上的线性空间。若满足：
+
+1. **加法封闭**：$\boldsymbol{\alpha}, \boldsymbol{\beta} \in U \Rightarrow \boldsymbol{\alpha} + \boldsymbol{\beta} \in U$；
+2. **数乘封闭**：$k \in F,\ \boldsymbol{\alpha} \in U \Rightarrow k \boldsymbol{\alpha} \in U$；
+
+则 $U$ 为 $V$ 的子空间。
+
+------
+
+**常见子空间例子：**
+
+1. $V = \mathbb{R}^3$ 中所有形如 $(x, y, 0)$ 的向量构成一个二维子空间；
+2. $\mathbb{M}_{n \times n}(F)$ 中所有对称矩阵构成其一个子空间；
+3. 多项式空间 $K[x]$ 中次数 $\leq 2$ 的多项式组成 $K[x]_3$ 是 $K[x]$ 的子空间；
+4. 任意向量组 $\boldsymbol{\alpha}_1, \ldots, \boldsymbol{\alpha}_n$ 张成的集合 $\langle \boldsymbol{\alpha}_1, \ldots, \boldsymbol{\alpha}_n \rangle$ 是一个子空间；
+5. $\lbrace \boldsymbol{0} \rbrace$ 和 $V$ 本身都是 $V$ 的子空间，称为**零子空间**与**平凡子空间**。
+
+------
+
+### 1.c.β 向量组的秩
+
+设 $V$ 是域 $F$ 上的线性空间，$\boldsymbol{\alpha}_1, \ldots, \boldsymbol{\alpha}_s \in V$，则称
+
+- $\displaystyle \text{span}(\boldsymbol{\alpha}_1, \ldots, \boldsymbol{\alpha}_s)$ 为该向量组张成的子空间；
+- 该子空间的维数称为这组向量的**秩**（rank），记为 $\displaystyle \operatorname{rank}(\boldsymbol{\alpha}_1, \ldots, \boldsymbol{\alpha}_s)$。
+
+------
+
+**等价定义**：
+
+- 向量组 $\lbrace \boldsymbol{\alpha}_1, \ldots, \boldsymbol{\alpha}_s \rbrace$ 中取出一个极大线性无关子集，其向量个数就是该向量组的秩。
+
+**性质与结论**：
+
+1. $\displaystyle \operatorname{rank}(\boldsymbol{\alpha}_1, \ldots, \boldsymbol{\alpha}_s) \leq s$；
+2. 若该组向量线性无关，则秩为 $s$；
+3. 若向量组中存在线性相关关系，则秩小于 $s$；
+4. 若 $\boldsymbol{\alpha}_1, \ldots, \boldsymbol{\alpha}_s$ 张成子空间 $U$，且 $\dim U = r$，则一定存在 $r$ 个线性无关向量组成 $U$ 的一个基，其余向量可由该基线性表出。
+
+------
+
+**例**：
+
+向量组 $\left\lbrace \begin{bmatrix} 1 \ 2 \end{bmatrix},\ \begin{bmatrix} 3 \ 6 \end{bmatrix},\ \begin{bmatrix} 1 \ 0 \end{bmatrix} \right\rbrace$ 的秩为 2，其中 $\begin{bmatrix} 3 \ 6 \end{bmatrix}$ 是 $\begin{bmatrix} 1 \ 2 \end{bmatrix}$ 的倍数，可去掉。
+
+------
+
+### 1.c.γ 子空间的和、交与维数公式
+
+设 $U, W$ 是线性空间 $V$ 的两个子空间，定义：
+
+- **交集** $U \cap W$：所有同时属于 $U$ 和 $W$ 的向量，仍为子空间；
+- **和空间** $U + W$：所有可表示为 $\boldsymbol{u} + \boldsymbol{w}$（其中 $\boldsymbol{u} \in U,\ \boldsymbol{w} \in W$）的向量所组成的集合，是包含 $U$ 与 $W$ 的最小子空间。
+
+形式化定义：
+
+$\displaystyle U + W = \lbrace \boldsymbol{\alpha} \in V \mid \boldsymbol{\alpha} = \boldsymbol{u} + \boldsymbol{w},\ \boldsymbol{u} \in U,\ \boldsymbol{w} \in W \rbrace$
+
+------
+
+**维数公式（Grassmann 公式）**：
+
+设 $U, W \subseteq V$ 是有限维子空间，则有：
+
+$\displaystyle \dim(U + W) = \dim U + \dim W - \dim(U \cap W)$
+
+**推论**：
+
+- 若 $U \cap W = \lbrace \boldsymbol{0} \rbrace$，则 $\displaystyle \dim(U + W) = \dim U + \dim W$，称 $U, W$ **直和**；
+- 若 $U + W = V$ 且 $U \cap W = \lbrace \boldsymbol{0} \rbrace$，则称 $V$ 是 $U$ 与 $W$ 的**直和**，记作 $V = U \oplus W$。
+
+------
+
+是否需要我现在将整个 `1.a + 1.b + 1.c` 生成一个完整 LaTeX 文件或 Markdown 模板？或者我们进入 **1.d 向量的坐标变换与过渡矩阵**？
+
+
+
+
+
+
+
+
 
 
 
