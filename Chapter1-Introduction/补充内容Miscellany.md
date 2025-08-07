@@ -21,7 +21,7 @@
 
 **满射surjective：**  $\forall b \in B,\ \exists a \in A,\ \text{s.t.}\ \sigma(a) = b$，（$B$ 中每个元素 $b$ 都是某个 $a \in A$ 的像， 即$\sigma(A) = B$），则称 $\sigma$ 是一个满射.若 $\sigma(A) \subsetneq B$，即存在 $b \in B$ 不是任何 $a \in A$ 的像，则 $\sigma$ 不是满射.
 
-**双射bijective：**  $\sigma$ 即单又满，一一对应.此时映射可逆，**存在唯一的逆映射** $\sigma^{-1}: B \to A$，满足 $\sigma^{-1}(\sigma(a)) = a$ 对所有 $a \in A$ 成立.
+**双射bijective：**  $\sigma$ 即单又满，一一对应。此时映射可逆，**存在唯一的逆映射** $\sigma^{-1}: B \to A$，满足 $\sigma^{-1}(\sigma(a)) = a$ 对所有 $a \in A$ 成立.
 
 **笛卡尔积** $A \times B$：定义为 $\displaystyle A \times B = \lbrace (a, b) \mid a \in A,\ b \in B \rbrace$
 
@@ -43,10 +43,10 @@
 - **加法相关：**
   - ① 交换律：$\boldsymbol{\alpha} + \boldsymbol{\beta} = \boldsymbol{\beta} + \boldsymbol{\alpha}$
   - ② 结合律：$(\boldsymbol{\alpha} + \boldsymbol{\beta}) + \boldsymbol{\gamma} = \boldsymbol{\alpha} + (\boldsymbol{\beta} + \boldsymbol{\gamma})$
-  - ③ 零元：存在 $\boldsymbol{0} \in V$，使得 $\boldsymbol{\alpha} + \boldsymbol{0} = \boldsymbol{\alpha}$
+  - ③ 零元：存在 $\boldsymbol{0} \in V$，使得 $\boldsymbol{\alpha} + \boldsymbol{0} = \boldsymbol{\alpha}$ （域必然有“0”）
   - ④ 逆元：每个 $\boldsymbol{\alpha} \in V$，存在 $-\boldsymbol{\alpha} \in V$ 使得 $\boldsymbol{\alpha} + (-\boldsymbol{\alpha}) = \boldsymbol{0}$
 - **数乘相关：**
-  - ⑤ 单位元：$1 \boldsymbol{\alpha} = \boldsymbol{\alpha}$
+  - ⑤ 单位元：$1 \boldsymbol{\alpha} = \boldsymbol{\alpha}$ （域必然有“1”）
   - ⑥ 结合律：$k (l \boldsymbol{\alpha}) = (kl) \boldsymbol{\alpha}$
   - ⑦ 分配律1（标量对向量）：$k (\boldsymbol{\alpha} + \boldsymbol{\beta}) = k \boldsymbol{\alpha} + k \boldsymbol{\beta}$
   - ⑧ 分配律2（向量对标量）：$(k + l) \boldsymbol{\alpha} = k \boldsymbol{\alpha} + l \boldsymbol{\alpha}$
@@ -73,10 +73,10 @@
    $K[x]_n = \{f(x) \in K[x] \mid \deg(f) < n\}$；
 
 6. **复数空间 $\mathbb{C}$ 作为实数域 $\mathbb{R}$ 上的线性空间**
-    复数集 $\mathbb{C}$ 可以看作是实数域 $\mathbb{R}$ 上的一个线性空间.其加法为复数加法，数量乘法为实数与复数相乘；
+    复数集 $\mathbb{C}$ 可以看作是实数域 $\mathbb{R}$ 上的一个线性空间。其加法为复数加法，数量乘法为实数与复数相乘；
 
 7. **域 $F$ 本身**
-    域 $F$ 可以看成是它自身上的线性空间.其加法与数量乘法分别是 $F$ 中的加法与乘法；
+    域 $F$ 可以看成是它自身上的线性空间。其加法与数量乘法分别是 $F$ 中的加法与乘法；
 
 8. **函数空间 $F^X$**
     给定任意非空集合 $X$ 和数域 $F$，所有从 $X$ 到 $F$ 的函数组成的集合 $F^X$，在函数加法与数量乘法下构成一个线性空间：
@@ -87,7 +87,7 @@
 
 ### 1.a.δ 线性空间的性质：
 
-设 $V$ 是域 $F$ 上的线性空间，下面列出七个由线性空间八条公理推导出的基本性质，并给出推导过程：
+设 $V$ 是域 $F$ 上的线性空间，下面列出由线性空间八条公理推导出的基本性质，并给出推导过程：
 
 1. **零元唯一性：** 若 $\boldsymbol{0}_1$ 与 $\boldsymbol{0}_2$ 均满足 $\forall \boldsymbol{\alpha} \in V$ 有 $\boldsymbol{\alpha} + \boldsymbol{0}_i = \boldsymbol{\alpha},\ \text{(i=1,2)}$，则 $\boldsymbol{0}_1 = \boldsymbol{0}_2$.
 
@@ -117,6 +117,11 @@
 
     > $\Rightarrow$：若 $k = 0$，显然成立；若 $k \neq 0$，则两边乘以 $k^{-1}$ 得 $\boldsymbol{0} = k^{-1} \boldsymbol{0} = k^{-1} (k \cdot \boldsymbol{\alpha}) = 1 \cdot \boldsymbol{\alpha} = \boldsymbol{\alpha}$，故 $\boldsymbol{\alpha} = \boldsymbol{0}$.<br>$\Leftarrow$：若 $k=0$ 或 $\boldsymbol{\alpha} = \boldsymbol{0}$，显然有 $k \cdot \boldsymbol{\alpha} = \boldsymbol{0}$.
 
+8. 从**域**的定义出发：
+
+    - $0$ 是加法单位元，一定存在；
+    - $1$ 是乘法单位元，一定存在且 $1 \ne 0$ .
+
 ------
 
 ## 1.b 维数、基与坐标
@@ -133,26 +138,23 @@
 
 **线性无关**：『设 $\boldsymbol{\alpha}_1, \ldots, \boldsymbol{\alpha}_n \in V$，若不存在不全为零的 $k_1, \ldots, k_n \in F$，使得 $\displaystyle k_1 \boldsymbol{\alpha}_1 + \cdots + k_n \boldsymbol{\alpha}_n = \boldsymbol{0}$ 』$\iff$『 仅有 $k_1 = \cdots = k_n = 0$ 能使线性组合等于 $\boldsymbol{0}$ 』，称这组向量**线性无关**.
 
+
+
+判断向量组 $\boldsymbol\alpha_1, \boldsymbol\alpha_2, \dots, \boldsymbol\alpha_n \in \mathbb{F}^m$ 是否线性相关，就是考察方程  $\displaystyle x_1 \boldsymbol\alpha_1 + x_2 \boldsymbol\alpha_2 + \cdots + x_n \boldsymbol\alpha_n = \boldsymbol{0}$  是否有非零解：  
+$\displaystyle
+\begin{cases}
+\alpha_{11}x_1 + \alpha_{12}x_2 + \cdots + \alpha_{1n}x_n = 0 \newline
+\alpha_{21}x_1 + \alpha_{22}x_2 + \cdots + \alpha_{2n}x_n = 0 \newline
+\quad\vdots \newline
+\alpha_{m1}x_1 + \alpha_{m2}x_2 + \cdots + \alpha_{mn}x_n = 0
+\end{cases}
+$  
+
+因此，向量组 $\boldsymbol\alpha_1, \boldsymbol\alpha_2, \dots, \boldsymbol\alpha_n$ 线性无关的充要条件是该齐次方程组只有零解，即 $x_1 = x_2 = \cdots = x_n = 0$.
+
 **常用结论——**
 
 - 单个向量 $\boldsymbol{\alpha}$ 线性相关的充要条件是 $\boldsymbol{\alpha} = \boldsymbol{0}$；<br>多个向量 $\boldsymbol{\alpha}_1, \dots, \boldsymbol{\alpha}_n$ 线性相关的充要条件是，存在一个向量 $\boldsymbol{\alpha}_i$ 是其余向量 $\boldsymbol α_i^-$ 的线性组合
-  
-
-1.  
-
-   > 一般地，要判断一个向量组 $\boldsymbol\alpha_1, \boldsymbol\alpha_2, \dots, \boldsymbol\alpha_n \in \mathbb{F}^m$ 是否线性相关，就是考察方程  
-   > $\displaystyle x_1 \boldsymbol\alpha_1 + x_2 \boldsymbol\alpha_2 + \cdots + x_n \boldsymbol\alpha_n = \boldsymbol{0}$  
-   > 是否有非零解。将该等式按分量逐行展开，得到一个 $m$ 元 $n$ 个未知数的齐次线性方程组：  
-   > $\displaystyle
-   > \begin{cases}
-   > \alpha_{11}x_1 + \alpha_{12}x_2 + \cdots + \alpha_{1n}x_n = 0 \newline
-   > \alpha_{21}x_1 + \alpha_{22}x_2 + \cdots + \alpha_{2n}x_n = 0 \newline
-   > \quad\vdots \newline
-   > \alpha_{m1}x_1 + \alpha_{m2}x_2 + \cdots + \alpha_{mn}x_n = 0
-   > \end{cases}
-   > $  
-   >
-   > 因此，向量组 $\boldsymbol\alpha_1, \boldsymbol\alpha_2, \dots, \boldsymbol\alpha_n$ 线性无关的充要条件是该齐次方程组只有零解，即 $x_1 = x_2 = \cdots = x_n = 0$.
 
 - 设向量组 $\boldsymbol{\alpha}_1, \dots, \boldsymbol{\alpha}_r$ 线性无关，若它们可以由 $\boldsymbol{\beta}_1, \dots, \boldsymbol{\beta}_s$ 线性表出，则有 $r \leq s$.<br>
   推论：两个<u>线性无关</u>的、<u>等价</u>的向量组，其向量个数相同.
@@ -171,7 +173,7 @@
   > \end{bmatrix}
   > }_{s \times r}^{\LARGE L^\top}$
   >
-  > `$\displaystyle \underbrace{[\boldsymbol\alpha_1 \ \boldsymbol\alpha_2 \ \cdots \ \boldsymbol\alpha_r]}_{n \times r}^{\LARGE A}=
+  > `$$\displaystyle \underbrace{[\boldsymbol\alpha_1 \ \boldsymbol\alpha_2 \ \cdots \ \boldsymbol\alpha_r]}_{n \times r}^{\LARGE A}=
   > \underbrace{[\boldsymbol\beta_1 \ \boldsymbol\beta_2 \ \cdots \ \boldsymbol\beta_s]}_{n \times s}^{\LARGE B}
   > \cdot
   > \underbrace{
@@ -181,9 +183,9 @@
   > \vdots    & \vdots    & \ddots & \vdots    \newline
   > \ell_{1s} & \ell_{2s} & \cdots & \ell_{rs}
   > \end{bmatrix}
-  > }_{s \times r}^{\LARGE L^\top}$`
+  > }_{s \times r}^{\LARGE L^\top}$$`
   >
-  > \code
+  > 
   >
   > 
   >
@@ -296,7 +298,15 @@ $\displaystyle [\boldsymbol{\beta}] = \begin{bmatrix}k_1 \ \vdots \ k_n \end{bma
 
 则 $U$ 为 $V$ 的子空间.
 
-------
+证明子空间也是线性空间，即证明满足八条公理
+
+> 公理①②⑤⑥⑦⑧成立（继承自原空间 $V$）
+>
+> 公理③（零向量存在性）：
+>  因为 $U$ 非空，取 $\boldsymbol{\alpha} \in U$，令 $k = 0 \in F(域的定义)$，则 $k \cdot \boldsymbol{\alpha} = \boldsymbol{0} \in U$，说明 $U$ 中包含零向量（零元）
+>
+> 公理④（加法逆元存在性）：
+>  对任意 $\boldsymbol{\beta} \in U$，令 $k = -1 \in F$，则 $ U \ni k \cdot \boldsymbol{\beta}=(-1) \cdot \boldsymbol{\beta} \xlongequal{\boldsymbol{\beta} \in V，根据1.a.δ\_3} -\boldsymbol{\beta}$，说明每个向量在 $U$ 中都有加法逆元。
 
 **常见子空间例子：**
 
