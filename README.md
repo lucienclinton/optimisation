@@ -217,6 +217,70 @@ $$ X = \left\lbrace x \in \mathbb{R}^n ,\middle|, \begin{aligned} &c_i(x) \leq 0
 
    如果想要两侧注释：`A \underset{在下}{\xrightarrow{注释在上}} B`：$A \underset{在下}{\xrightarrow{注释在上}} B$，（发现好像是根据underset的文本长度确定的，所以建议把“在下”的文本选长一点，“注释在上”的文本选短一点）
 
+### 5. 希腊字符转义
+
+尝试了
+
+1. （示例）`\displaystyle \sum_{i=1}^{n} \boldsymbol{\beta}_j={\alpha}_i` `$\displaystyle \sum_{i=1}^{n} \boldsymbol{\beta}_j={\alpha}_i$`  $\displaystyle \sum_{i=1}^{n} \boldsymbol{\beta}_j={\alpha}_i$
+
+2. （{\alpha}在前就不行）`\displaystyle {\alpha}_i= \sum_{i=1}^{n} \boldsymbol{\beta}_j` `$\displaystyle {\alpha}_i= \sum_{i=1}^{n} \boldsymbol{\beta}_j$` $\displaystyle {\alpha}_i= \sum_{i=1}^{n} \boldsymbol{\beta}_j$
+
+3. （{\alpha}写成α也不行）`\displaystyle α_i=\sum_{i=1}^{n} \boldsymbol{\beta}_j` `$\displaystyle α_i=\sum_{i=1}^{n} \boldsymbol{\beta}_j$` $\displaystyle α_i=\sum_{i=1}^{n} \boldsymbol{\beta}_j$
+
+4. （{x}在前y也不行，说明{}有问题）`\displaystyle {x}_i=\sum_{i=1}^{n} \boldsymbol{\beta}_j` `$\displaystyle {x}_i=\sum_{i=1}^{n} \boldsymbol{\beta}_j$` $\displaystyle {x}_i=\sum_{i=1}^{n} \boldsymbol{\beta}_j$
+
+5. （x在前就行）`\displaystyle x_i=\sum_{i=1}^{n} \boldsymbol{\beta}_j` `$\displaystyle x_i=\sum_{i=1}^{n} \boldsymbol{\beta}_j$`$\displaystyle x_i=\sum_{i=1}^{n} \boldsymbol{\beta}_j$
+
+6. （\alpha在前也行）`\displaystyle \alpha_i=\sum_{i=1}^{n} \boldsymbol{\beta}_j` `$\displaystyle \alpha_i=\sum_{i=1}^{n} \boldsymbol{\beta}_j$`$\displaystyle \alpha_i=\sum_{i=1}^{n} \boldsymbol{\beta}_j$
+
+   六种方式
+
+### 6. 复杂公式
+
+`$\displaystyle \underbrace{[\boldsymbol\alpha_1 \ \boldsymbol\alpha_2 \ \cdots \ \boldsymbol\alpha_r]}_{n \times r}^{\LARGE A}=
+\underbrace{[\boldsymbol\beta_1 \ \boldsymbol\beta_2 \ \cdots \ \boldsymbol\beta_s]}_{n \times s}^{\LARGE B}
+\cdot
+\underbrace{
+\begin{bmatrix}
+\ell_{11} & \ell_{21} & \cdots & \ell_{r1} \newline
+\ell_{12} & \ell_{22} & \cdots & \ell_{r2} \newline
+\vdots    & \vdots    & \ddots & \vdots    \newline
+\ell_{1s} & \ell_{2s} & \cdots & \ell_{rs}
+\end{bmatrix}
+}_{s \times r}^{\LARGE L^\top}$`<br>尝了很多种方法，只能使用网页的功能（如上）或者（如下）
+
+<div style="overflow-x: auto;">
+$\displaystyle \underbrace{[\boldsymbol\alpha_1 \ \boldsymbol\alpha_2 \ \cdots \ \boldsymbol\alpha_r]}_{n \times r}^{\LARGE A}=
+\underbrace{[\boldsymbol\beta_1 \ \boldsymbol\beta_2 \ \cdots \ \boldsymbol\beta_s]}_{n \times s}^{\LARGE B}
+\cdot
+\underbrace{
+\begin{bmatrix}
+\ell_{11} & \ell_{21} & \cdots & \ell_{r1} \newline
+\ell_{12} & \ell_{22} & \cdots & \ell_{r2} \newline
+\vdots    & \vdots    & \ddots & \vdots    \newline
+\ell_{1s} & \ell_{2s} & \cdots & \ell_{rs}
+\end{bmatrix}
+}_{s \times r}^{\LARGE L^\top}$
+</div>
+
+```html
+<div style="overflow-x: auto;">
+$\displaystyle \underbrace{[\boldsymbol\alpha_1 \ \boldsymbol\alpha_2 \ \cdots \ \boldsymbol\alpha_r]}_{n \times r}^{\LARGE A}=
+\underbrace{[\boldsymbol\beta_1 \ \boldsymbol\beta_2 \ \cdots \ \boldsymbol\beta_s]}_{n \times s}^{\LARGE B}
+\cdot
+\underbrace{
+\begin{bmatrix}
+\ell_{11} & \ell_{21} & \cdots & \ell_{r1} \newline
+\ell_{12} & \ell_{22} & \cdots & \ell_{r2} \newline
+\vdots    & \vdots    & \ddots & \vdots    \newline
+\ell_{1s} & \ell_{2s} & \cdots & \ell_{rs}
+\end{bmatrix}
+}_{s \times r}^{\LARGE L^\top}$
+</div>
+```
+
+
+
 ## 顺路完成的目标
 
 1. 学会盲打，并尽可能提高效率
