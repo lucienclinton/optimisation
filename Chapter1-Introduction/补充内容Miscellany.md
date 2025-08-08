@@ -134,23 +134,42 @@
 
 **等价**：可以相互线性表出.具有<u>自反性</u>、<u>对称性</u>和<u>传递性</u>.
 
-**线性相关**：『设 $\boldsymbol{\alpha}_1, \ldots, \boldsymbol{\alpha}_n \in V$，若存在不全为零的 $k_1, \ldots, k_n \in F$，使得 $\displaystyle k_1 \boldsymbol{\alpha}_1 + \cdots + k_n \boldsymbol{\alpha}_n = \boldsymbol{0}$』，则称这组向量**线性相关**.
+**线性相关**：『设 $\boldsymbol{\alpha}_1, \ldots, \boldsymbol{\alpha}_n \in V$，若`$存在不全为零的$` $k_1, \ldots, k_n \in F$，使得 $\displaystyle k_1 \boldsymbol{\alpha}_1 + \cdots + k_n \boldsymbol{\alpha}_n = \boldsymbol{0}$』，则称这组向量**线性相关**.
 
 **线性无关**：『设 $\boldsymbol{\alpha}_1, \ldots, \boldsymbol{\alpha}_n \in V$，若不存在不全为零的 $k_1, \ldots, k_n \in F$，使得 $\displaystyle k_1 \boldsymbol{\alpha}_1 + \cdots + k_n \boldsymbol{\alpha}_n = \boldsymbol{0}$ 』$\iff$『 仅有 $k_1 = \cdots = k_n = 0$ 能使线性组合等于 $\boldsymbol{0}$ 』，称这组向量**线性无关**.
 
 
 
-判断向量组 $\boldsymbol\alpha_1, \boldsymbol\alpha_2, \dots, \boldsymbol\alpha_n \in \mathbb{F}^m$ 是否线性相关，就是考察方程  $\displaystyle x_1 \boldsymbol\alpha_1 + x_2 \boldsymbol\alpha_2 + \cdots + x_n \boldsymbol\alpha_n = \boldsymbol{0}$  是否有非零解：  
-$\displaystyle
+系数矩阵为 $\displaystyle A = [\boldsymbol\alpha_1 \ \boldsymbol\alpha_2 \ \cdots \ \boldsymbol\alpha_r]=\begin{bmatrix} \alpha_{11} & \alpha_{12} & \cdots & \alpha_{1n} \newline \alpha_{21} & \alpha_{22} & \cdots & \alpha_{2n} \newline \vdots & \vdots & \ddots & \vdots \newline\alpha_{m1} & \alpha_{m2} & \cdots & \alpha_{mn} \end{bmatrix}$，未知量列向量为 $\displaystyle \boldsymbol{x} = \begin{pmatrix} x_1 \newline x_2 \newline\vdots \newline x_n \end{pmatrix}$，系数列向量为 $\displaystyle \boldsymbol{b} = \begin{pmatrix} b_1 \newline b_2 \newline \vdots \newline b_m \end{pmatrix}$.<br>
+
+向量组 $\boldsymbol\alpha_1, \boldsymbol\alpha_2, \dots, \boldsymbol\alpha_n \in \mathbb{F}^m$ 是否线性相关，等价于考察方程  $\displaystyle x_1 \boldsymbol\alpha_1 + x_2 \boldsymbol\alpha_2 + \cdots + x_n \boldsymbol\alpha_n = \boldsymbol{0}(\boldsymbol{Ax}=\boldsymbol{0})$  是否有非零解（齐次线性方程组必有解，至少有一个零解）：  
+$$
+\displaystyle
 \begin{cases}
 \alpha_{11}x_1 + \alpha_{12}x_2 + \cdots + \alpha_{1n}x_n = 0 \newline
 \alpha_{21}x_1 + \alpha_{22}x_2 + \cdots + \alpha_{2n}x_n = 0 \newline
 \quad\vdots \newline
 \alpha_{m1}x_1 + \alpha_{m2}x_2 + \cdots + \alpha_{mn}x_n = 0
 \end{cases}
-$  
+$$
+$\boldsymbol\alpha_1, \boldsymbol\alpha_2, \dots, \boldsymbol\alpha_n$ 线性无关 $\iff$ 齐次线性方程组 $\boldsymbol{Ax}=\boldsymbol{0}$ 只有零解，即 $\boldsymbol{x}=\boldsymbol{0}$
 
-因此，向量组 $\boldsymbol\alpha_1, \boldsymbol\alpha_2, \dots, \boldsymbol\alpha_n$ 线性无关的充要条件是该齐次方程组只有零解，即 $x_1 = x_2 = \cdots = x_n = 0$.
+$\boldsymbol\alpha_1, \boldsymbol\alpha_2, \dots, \boldsymbol\alpha_n$ 线性相关 $\iff$ 齐次线性方程组 $\boldsymbol{Ax}=\boldsymbol{0}$ 有非零解
+
+
+向量 $\boldsymbol{b}$ 能否由向量组 $\boldsymbol \alpha_1, \dots, \boldsymbol\alpha_n$ 线性表出，即判断非齐次线性方程组 $\displaystyle x_1 \boldsymbol\alpha_1 + x_2 \boldsymbol\alpha_2 + \cdots + x_n \boldsymbol\alpha_n = \boldsymbol{b}(A \boldsymbol{x} = \boldsymbol{b})$ 是否有解，对应的方程组为：
+$$
+\displaystyle 
+\begin{cases} 
+\alpha_{11} x_1 + \alpha_{12} x_2 + \cdots + \alpha_{1n} x_n = b_1 \newline 
+\alpha_{21} x_1 + \alpha_{22} x_2 + \cdots + \alpha_{2n} x_n = b_2 \newline
+\quad\vdots \newline
+\alpha_{m1} x_1 + \alpha_{m2} x_2 + \cdots + \alpha_{mn} x_n = b_m 
+\end{cases}
+$$
+ $\boldsymbol{b}$ 能由向量组 $\boldsymbol{\alpha}_1, \dots, \boldsymbol\alpha_n$ 线性表出 $\iff$ 非齐次线性方程组 $\boldsymbol{Ax}=\boldsymbol{b}$ 有解 $\iff \boldsymbol{b} \in \boldsymbol L(\boldsymbol{\alpha}_1, \ldots, \boldsymbol{\alpha}_n)$ 
+
+ $\boldsymbol{b}$ 不能由向量组 $\boldsymbol{\alpha}_1, \dots, \boldsymbol\alpha_n$ 线性表出 $\iff$ 非齐次线性方程组 $\boldsymbol{Ax}=\boldsymbol{b}$ 无解
 
 **常用结论——**
 
@@ -218,13 +237,7 @@ $
 
 ------
 
-### 1.b.β 向量组生成的子空间（张成空间）
 
-若 $S = \lbrace \boldsymbol{\alpha}_1, \ldots, \boldsymbol{\alpha}_n \rbrace$ 是 $V$ 中一组向量，定义 $S$ 的所有线性组合组成的集合为
-
-$\displaystyle \text{span}(S) = \lbrace k_1 \boldsymbol{\alpha}_1 + \cdots + k_n \boldsymbol{\alpha}_n \mid k_i \in F \rbrace$，
-
-称为 $S$ **张成的子空间**，记作 $\langle \boldsymbol{\alpha}_1, \ldots, \boldsymbol{\alpha}_n \rangle$.它是 $V$ 的子空间，且是包含 $S$ 的最小子空间.
 
 ------
 
@@ -281,32 +294,31 @@ $\displaystyle [\boldsymbol{\beta}] = \begin{bmatrix}k_1 \ \vdots \ k_n \end{bma
 
 ------
 
-## 1.c 子空间与向量组的秩
+## 1.c 线性子空间基础
 
-------
+### 1.c.α 线性子空间
 
-### 1.c.α 子空间的定义与判别
+**线性子空间 linear subspace：**
+设 $V$ 是域 $F$ 上的线性空间，<u>若 $U \subseteq V$，且 $U$ 在 $V$ 的加法与数乘下自身也构成一个 $F$ 上的线性空间</u>，则称 $U$ 是 $V$ 的线性子空间（linear subspace）
 
-设 $V$ 是域 $F$ 上的线性空间.若 $U \subseteq V$ 是 $V$ 的一个非空子集，且在加法与数乘下封闭，并满足线性空间的八条运算公理，则称 $U$ 为 $V$ 的一个**子空间**（subspace）.
+证明是线性空间很麻烦，所以使用充要条件，**充要条件为：**
 
-**子空间判别准则（两步法）**：
+1. $U$ 是 $V$ 的<u>非空</u>子集（通常验证 $\boldsymbol 0 \in U$）；
+2. $U$ <u>对加法与数乘封闭</u>，即：
+   - 加法封闭：$\forall\ \boldsymbol\alpha, \boldsymbol\beta \in U$，有 $\boldsymbol\alpha + \boldsymbol\beta \in U$；
+   - 数乘封闭：$\forall\ k \in F,\ \boldsymbol\alpha \in U$，有 $k \boldsymbol\alpha \in U$.
 
-设 $U \subseteq V$，$V$ 是域 $F$ 上的线性空间.若满足：
-
-1. **加法封闭**：$\boldsymbol{\alpha}, \boldsymbol{\beta} \in U \Rightarrow \boldsymbol{\alpha} + \boldsymbol{\beta} \in U$；
-2. **数乘封闭**：$k \in F,\ \boldsymbol{\alpha} \in U \Rightarrow k \boldsymbol{\alpha} \in U$；
-
-则 $U$ 为 $V$ 的子空间.
-
-证明子空间也是线性空间，即证明满足八条公理
-
+>  $\Rightarrow$：构成一个 $F$ 上的线性空间 $\Rightarrow$ 1.和2.显然成立
+>
+>  $\Leftarrow$：1.和2. $\Rightarrow$ 构成一个 $F$ 上的线性空间（证明满足八条公理）
+>
 > 公理①②⑤⑥⑦⑧成立（继承自原空间 $V$）
 >
 > 公理③（零向量存在性）：
->  因为 $U$ 非空，取 $\boldsymbol{\alpha} \in U$，令 $k = 0 \in F(域的定义)$，则 $k \cdot \boldsymbol{\alpha} = \boldsymbol{0} \in U$，说明 $U$ 中包含零向量（零元）
+> 因为 $U$ 非空，取 $\boldsymbol{\alpha} \in U$，令 $k = 0 \in F(域的定义)$，则 $k \cdot \boldsymbol{\alpha} = \boldsymbol{0} \in U$，说明 $U$ 中包含零向量（零元）
 >
 > 公理④（加法逆元存在性）：
->  对任意 $\boldsymbol{\beta} \in U$，令 $k = -1 \in F$，则 $ U \ni k \cdot \boldsymbol{\beta}=(-1) \cdot \boldsymbol{\beta} \xlongequal{\boldsymbol{\beta} \in V，根据1.a.δ\_3} -\boldsymbol{\beta}$，说明每个向量在 $U$ 中都有加法逆元。
+> 对任意 $\boldsymbol{\beta} \in U$，令 $k = -1 \in F$，则 $ U \ni k \cdot \boldsymbol{\beta}=(-1) \cdot \boldsymbol{\beta} \xlongequal{\boldsymbol{\beta} \in V，根据1.a.δ\_3} -\boldsymbol{\beta}$，说明每个向量在 $U$ 中都有加法逆元.
 
 **常见子空间例子：**
 
@@ -315,6 +327,10 @@ $\displaystyle [\boldsymbol{\beta}] = \begin{bmatrix}k_1 \ \vdots \ k_n \end{bma
 3. 多项式空间 $K[x]$ 中次数 $\leq 2$ 的多项式组成 $K[x]_3$ 是 $K[x]$ 的子空间；
 4. 任意向量组 $\boldsymbol{\alpha}_1, \ldots, \boldsymbol{\alpha}_n$ 张成的集合 $\langle \boldsymbol{\alpha}_1, \ldots, \boldsymbol{\alpha}_n \rangle$ 是一个子空间；
 5. $\lbrace \boldsymbol{0} \rbrace$ 和 $V$ 本身都是 $V$ 的子空间，称为**零子空间**与**平凡子空间**.
+
+### 1.b.β 向量组生成的子空间（张成空间）
+
+$\displaystyle \text{span}(\boldsymbol{\alpha}_1, \ldots, \boldsymbol{\alpha}_n) =\boldsymbol L(\boldsymbol{\alpha}_1, \ldots, \boldsymbol{\alpha}_n) =\lbrace k_1 \boldsymbol{\alpha}_1 + \cdots + k_n \boldsymbol{\alpha}_n \mid k_i \in F \rbrace$，称为 $S$ **生成的子空间**，也可记作 $\langle \boldsymbol{\alpha}_1, \ldots, \boldsymbol{\alpha}_n \rangle$.它是 $V$ 的子空间，且是包含 $\lbrace \boldsymbol \alpha_1, \ldots, \boldsymbol{\alpha}_n\rbrace$ 的最小子空间.
 
 ------
 
@@ -381,24 +397,6 @@ $\displaystyle \dim(U + W) = \dim U + \dim W - \dim(U \cap W)$
 
 
 
-
-
-
-## 1.c 线性子空间基础
-
-### 1.c.α 线性子空间
-
-**线性子空间 linear subspace：**
-设 $V$ 是域 $F$ 上的线性空间，若 $U \subseteq V$，且 $U$ 在 $V$ 的加法与数乘下自身也构成一个 $F$ 上的线性空间，则称 $U$ 是 $V$ 的线性子空间（linear subspace）
-
-**即充要条件为：**
-
-1. $U$ 是 $V$ 的<u>非空</u>子集（通常验证 $\boldsymbol 0 \in U$）；
-2. $U$ <u>对加法与数乘封闭</u>[^封闭运算]，即：
-   - 加法封闭：$\forall\ \boldsymbol\alpha, \boldsymbol\beta \in U$，有 $\boldsymbol\alpha + \boldsymbol\beta \in U$；
-   - 数乘封闭：$\forall\ k \in F,\ \boldsymbol\alpha \in U$，有 $k \boldsymbol\alpha \in U$.
-
-[^封闭运算]:这两个封闭运算客观满足 **8 条公理**，在线性空间 $V$ 里满足，在线性空间 $U$ 里也一定满足
 
 
 
