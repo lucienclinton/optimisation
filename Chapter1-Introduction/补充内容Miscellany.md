@@ -53,7 +53,7 @@
 
 满足以上8条条件，我们称 $V$ 为 $F$ 上的线性空间.例如，$\mathbb{R}^n$ 是 $\mathbb{R}$ 上的线性空间，$\mathbb{C}^n$ 是 $\mathbb{C}$ 上的线性空间.
 
-### 1.a.υ 线性空间的典型例子：
+### 1.a.γ 线性空间的典型例子：
 
 1. **$\mathbb{R}^n$：实数域 $\mathbb{R}$ 上的 $n$ 维几何向量空间**
     以原点为起点的所有 $n$ 维向量构成的集合 ${\mathbb{R}}^n$ ，在向量加法和数量乘法下，构成实数域 $\mathbb{R}$ 上的一个线性空间；
@@ -134,7 +134,7 @@
 
 **等价**：可以相互线性表出.具有<u>自反性</u>、<u>对称性</u>和<u>传递性</u>.
 
-**线性相关**：『设 $\boldsymbol{\alpha}_1, \ldots, \boldsymbol{\alpha}_n \in V$，若`$存在不全为零的$` $k_1, \ldots, k_n \in F$，使得 $\displaystyle k_1 \boldsymbol{\alpha}_1 + \cdots + k_n \boldsymbol{\alpha}_n = \boldsymbol{0}$』，则称这组向量**线性相关**.
+**线性相关**：『设 $\boldsymbol{\alpha}_1, \ldots, \boldsymbol{\alpha}_n \in V$，若<u>存在不全为零</u>的 $k_1, \ldots, k_n \in F$，使得 $\displaystyle k_1 \boldsymbol{\alpha}_1 + \cdots + k_n \boldsymbol{\alpha}_n = \boldsymbol{0}$』，则称这组向量**线性相关**.
 
 **线性无关**：『设 $\boldsymbol{\alpha}_1, \ldots, \boldsymbol{\alpha}_n \in V$，若不存在不全为零的 $k_1, \ldots, k_n \in F$，使得 $\displaystyle k_1 \boldsymbol{\alpha}_1 + \cdots + k_n \boldsymbol{\alpha}_n = \boldsymbol{0}$ 』$\iff$『 仅有 $k_1 = \cdots = k_n = 0$ 能使线性组合等于 $\boldsymbol{0}$ 』，称这组向量**线性无关**.
 
@@ -142,7 +142,7 @@
 
 系数矩阵为 $\displaystyle A = [\boldsymbol\alpha_1 \ \boldsymbol\alpha_2 \ \cdots \ \boldsymbol\alpha_r]=\begin{bmatrix} \alpha_{11} & \alpha_{12} & \cdots & \alpha_{1n} \newline \alpha_{21} & \alpha_{22} & \cdots & \alpha_{2n} \newline \vdots & \vdots & \ddots & \vdots \newline\alpha_{m1} & \alpha_{m2} & \cdots & \alpha_{mn} \end{bmatrix}$，未知量列向量为 $\displaystyle \boldsymbol{x} = \begin{pmatrix} x_1 \newline x_2 \newline\vdots \newline x_n \end{pmatrix}$，系数列向量为 $\displaystyle \boldsymbol{b} = \begin{pmatrix} b_1 \newline b_2 \newline \vdots \newline b_m \end{pmatrix}$.<br>
 
-向量组 $\boldsymbol\alpha_1, \boldsymbol\alpha_2, \dots, \boldsymbol\alpha_n \in \mathbb{F}^m$ 是否线性相关，等价于考察方程  $\displaystyle x_1 \boldsymbol\alpha_1 + x_2 \boldsymbol\alpha_2 + \cdots + x_n \boldsymbol\alpha_n = \boldsymbol{0}(\boldsymbol{Ax}=\boldsymbol{0})$  是否有非零解（齐次线性方程组必有解，至少有一个零解）：  
+①向量组 $\boldsymbol\alpha_1, \boldsymbol\alpha_2, \dots, \boldsymbol\alpha_n \in \mathbb{F}^m$ 是否线性相关，等价于考察方程  $\displaystyle x_1 \boldsymbol\alpha_1 + x_2 \boldsymbol\alpha_2 + \cdots + x_n \boldsymbol\alpha_n = \boldsymbol{0}(\boldsymbol{Ax}=\boldsymbol{0})$  是否有非零解（齐次线性方程组必有解，至少有一个零解）：  
 $$
 \displaystyle
 \begin{cases}
@@ -154,10 +154,9 @@ $$
 $$
 $\boldsymbol\alpha_1, \boldsymbol\alpha_2, \dots, \boldsymbol\alpha_n$ 线性无关 $\iff$ 齐次线性方程组 $\boldsymbol{Ax}=\boldsymbol{0}$ 只有零解，即 $\boldsymbol{x}=\boldsymbol{0}$
 
-$\boldsymbol\alpha_1, \boldsymbol\alpha_2, \dots, \boldsymbol\alpha_n$ 线性相关 $\iff$ 齐次线性方程组 $\boldsymbol{Ax}=\boldsymbol{0}$ 有非零解
+$\boldsymbol\alpha_1, \boldsymbol\alpha_2, \dots, \boldsymbol\alpha_n$ 线性相关 $\iff$ 齐次线性方程组 $\boldsymbol{Ax}=\boldsymbol{0}$ 有非零解$\iff$矩阵 $\boldsymbol{A}$ 的行、列向量线性相关$\iff$矩阵 $\boldsymbol{A}$ 不满秩
 
-
-向量 $\boldsymbol{b}$ 能否由向量组 $\boldsymbol \alpha_1, \dots, \boldsymbol\alpha_n$ 线性表出，即判断非齐次线性方程组 $\displaystyle x_1 \boldsymbol\alpha_1 + x_2 \boldsymbol\alpha_2 + \cdots + x_n \boldsymbol\alpha_n = \boldsymbol{b}(A \boldsymbol{x} = \boldsymbol{b})$ 是否有解，对应的方程组为：
+②向量 $\boldsymbol{b}$ 能否由向量组 $\boldsymbol \alpha_1, \dots, \boldsymbol\alpha_n$ 线性表出，即判断非齐次线性方程组 $\displaystyle x_1 \boldsymbol\alpha_1 + x_2 \boldsymbol\alpha_2 + \cdots + x_n \boldsymbol\alpha_n = \boldsymbol{b}(A \boldsymbol{x} = \boldsymbol{b})$ 是否有解，对应的方程组为：
 $$
 \displaystyle 
 \begin{cases} 
@@ -171,11 +170,11 @@ $$
 
  $\boldsymbol{b}$ 不能由向量组 $\boldsymbol{\alpha}_1, \dots, \boldsymbol\alpha_n$ 线性表出 $\iff$ 非齐次线性方程组 $\boldsymbol{Ax}=\boldsymbol{b}$ 无解
 
-**常用结论——**
+### 1.b.β 线性相关、线性无关的性质和推论
 
 - 单个向量 $\boldsymbol{\alpha}$ 线性相关的充要条件是 $\boldsymbol{\alpha} = \boldsymbol{0}$；<br>多个向量 $\boldsymbol{\alpha}_1, \dots, \boldsymbol{\alpha}_n$ 线性相关的充要条件是，存在一个向量 $\boldsymbol{\alpha}_i$ 是其余向量 $\boldsymbol α_i^-$ 的线性组合
 
-- 设向量组 $\boldsymbol{\alpha}_1, \dots, \boldsymbol{\alpha}_r$ 线性无关，若它们可以由 $\boldsymbol{\beta}_1, \dots, \boldsymbol{\beta}_s$ 线性表出，则有 $r \leq s$.<br>
+- **替换定理**：向量组 $\boldsymbol{\alpha}_1, \dots, \boldsymbol{\alpha}_r$ 可以由向量组 $\boldsymbol{\beta}_1, \dots, \boldsymbol{\beta}_s$ 线性表出，且向量组 $\boldsymbol{\alpha}_1, \dots, \boldsymbol{\alpha}_r$ 线性无关，则有 $r \leq s$.<br>**替换定理逆否命题**：向量组 $\boldsymbol{\alpha}_1, \dots, \boldsymbol{\alpha}_r$ 可以由向量组 $\boldsymbol{\beta}_1, \dots, \boldsymbol{\beta}_s$ 线性表出，且 $r > s$，则 $\boldsymbol{\alpha}_1, \dots, \boldsymbol{\alpha}_r$ 线性相关<br>
   推论：两个<u>线性无关</u>的、<u>等价</u>的向量组，其向量个数相同.
 
   > 由题设，存在系数矩阵$L = (l_{ij}) \in \mathbb{F}^{r \times s}$，使得 $\displaystyle \boldsymbol\alpha_i = \sum_{j=1}^{s} l_{ij}\cdot \boldsymbol\beta_j$，即：
@@ -204,42 +203,53 @@ $$
   > \end{bmatrix}
   > }_{s \times r}^{\LARGE L^\top}$$`
   >
-  > 
-  >
-  > 
-  >
   > 因为向量组 $\boldsymbol{\alpha}_1, \dots, \boldsymbol{\alpha}_r$ 线性无关，所以其组成的矩阵的列向量线性无关，即：$\displaystyle \operatorname{r}(A)=\operatorname{r}([\boldsymbol{\alpha}_1 \ \cdots \ \boldsymbol{\alpha}_r]) = r$ ，同理 $\operatorname{r}(B)=s$ .
   >
   > 而根据矩阵乘积的秩的性质，有：$\displaystyle r=\operatorname{r}(A) = \operatorname{r}(B \cdot L^\top) \le \min \lbrace \operatorname{r}(B), \operatorname{r}(L^\top) \rbrace \le \operatorname{r}(B)=s$
   >
   > 从而得到：$\displaystyle r \le s$ .
+  
+- 整体相关 $\Rightarrow$ 部分相关；整体无关 $\Rightarrow$ 部分无关<br>接长相关 $\Rightarrow$ 部分相关；部分无关 $\Rightarrow$ 整体无关
 
-- 若 $\lbrace \boldsymbol{\alpha}_1, \dots, \boldsymbol{\alpha}_r \rbrace$ 线性无关，而与 $\boldsymbol{\beta}$ 合并后线性相关，则 $\boldsymbol{\beta}$ 可被 $\lbrace \boldsymbol{\alpha}_1, \dots, \boldsymbol{\alpha}_r \rbrace$ 线性表出： $\displaystyle \boldsymbol{\beta} = k_1 \boldsymbol{\alpha}_1 + \cdots + k_r \boldsymbol{\alpha}_r$ ，且这个表示是唯一的.
+-   $\boldsymbol{\beta}$ 可被 $\lbrace \boldsymbol{\alpha}_1, \dots, \boldsymbol{\alpha}_r \rbrace$ 线性表出：$\displaystyle \boldsymbol{\beta} = k_1 \boldsymbol{\alpha}_1 + \cdots + k_r \boldsymbol{\alpha}_r$ ，则<br> $\lbrace \boldsymbol{\alpha}_1, \dots, \boldsymbol{\alpha}_r \rbrace$ 线性无关$\iff$这个表示唯一.
 
-  > 假设向量组 $\lbrace \boldsymbol{\alpha}_1, \dots, \boldsymbol{\alpha}_r, \boldsymbol{\beta} \rbrace$ 线性相关，
-  > 则存在不全为零的标量 $k_1, \dots, k_r, l$，使得
-  > $k_1 \boldsymbol{\alpha}_1 + \cdots + k_r \boldsymbol{\alpha}_r + l \boldsymbol{\beta} = \boldsymbol{0}$.
+  > $\Rightarrow$：（反证法）
   >
-  > ①若 $l = 0$，则原式为$k_1 \boldsymbol{\alpha}_1 + \cdots + k_r \boldsymbol{\alpha}_r = \boldsymbol{0}$，但由 $\boldsymbol{\alpha}_1, \dots, \boldsymbol{\alpha}_r$ 线性无关知，必有 $k_1 = \cdots = k_r = 0$，这与“$k_1, \dots, k_r, l$ 不全为零矛盾，故 $l \neq 0$.
-  > 
-  > 将上式两边除以 $l$，得$\boldsymbol{\beta} = -\dfrac{k_1}{l} \boldsymbol{\alpha}_1 - \cdots - \dfrac{k_r}{l} \boldsymbol{\alpha}_r$，
-  > 故 $\boldsymbol{\beta}$ 可由 $\boldsymbol{\alpha}_1, \dots, \boldsymbol{\alpha}_r$ 线性表出.
-  >
-  > ②接下来证明唯一性（反证法）
-  > 
   > 假设存在两组系数 $\lbrace k_1, \dots, k_r \rbrace$ 与 $\lbrace k_1', \dots, k_r' \rbrace$，使得
-  >$\boldsymbol{\beta} = k_1 \boldsymbol{\alpha}_1 + \cdots + k_r \boldsymbol{\alpha}_r = k_1' \boldsymbol{\alpha}_1 + \cdots + k_r' \boldsymbol{\alpha}_r$，
+  > $\boldsymbol{\beta} = k_1 \boldsymbol{\alpha}_1 + \cdots + k_r \boldsymbol{\alpha}_r = k_1' \boldsymbol{\alpha}_1 + \cdots + k_r' \boldsymbol{\alpha}_r$，
   > 两式相减得：$(k_1 - k_1') \boldsymbol{\alpha}_1 + \cdots + (k_r - k_r') \boldsymbol{\alpha}_r = \boldsymbol{0}$.
   >
   > 由 $\boldsymbol{\alpha}_1, \dots, \boldsymbol{\alpha}_r$ 线性无关，必有 $k_i - k_i' = 0$，即 $k_i = k_i'$，对所有 $i$ 成立.
-  > 
+  >
   > 因此，$\boldsymbol{\beta}$ 的线性表出方式唯一.
+  >
+  > $\Leftarrow$：（反证法）
+  >  若该表示不唯一，则存在不同的两组系数，使得相同的 $\boldsymbol{\beta}$ 有两种不同的线性表出形式，
+  >  两式相减后得到非零系数线性组合为零向量，说明 $\lbrace \boldsymbol{\alpha}_1, \dots, \boldsymbol{\alpha}_r \rbrace$ 线性相关，矛盾。
+  >  故 $\lbrace \boldsymbol{\alpha}_1, \dots, \boldsymbol{\alpha}_r \rbrace$ 线性无关。
 
-------
+- 若 $\lbrace \boldsymbol{\alpha}_1, \dots, \boldsymbol{\alpha}_r \rbrace$ 线性无关，而与 $\boldsymbol{\beta}$ 合并后线性相关，则 $\boldsymbol{\beta}$ 可被 $\lbrace \boldsymbol{\alpha}_1, \dots, \boldsymbol{\alpha}_r \rbrace$ 线性表出： $\displaystyle \boldsymbol{\beta} = k_1 \boldsymbol{\alpha}_1 + \cdots + k_r \boldsymbol{\alpha}_r$ ，且这个表示是唯一的.
+- 含零向量的向量组一定线性相关
+- $n$ 维单位向量组线性无关
+- 任何由 $n + k$ 个 $n$ 维向量组成的向量组必定线性相关
 
+### 1.b.γ 极大线性无关组
 
+设向量组 $\lbrace \boldsymbol{\alpha}_1, \boldsymbol{\alpha}_2, \dots, \boldsymbol{\alpha}_s \rbrace$ 属于线性空间 $V$，若该组向量线性无关，且在加入任意新的向量后，新的向量组都线性相关，则称这组向量是该向量组的一个**极大线性无关组**，也叫做**极大无关组**。
 
-------
+具体来说，若对任意 $\boldsymbol{\beta} \in V$，加入后使得
+
+{α1,…,αs,β}\lbrace \boldsymbol{\alpha}_1, \dots, \boldsymbol{\alpha}_s, \boldsymbol{\beta} \rbrace
+
+线性相关，则 $\lbrace \boldsymbol{\alpha}_1, \dots, \boldsymbol{\alpha}_s \rbrace$ 是极大线性无关组。
+
+极大线性无关组具有以下性质：
+
+1. 极大线性无关组是原向量组的一个线性无关子集。
+2. 该组向量的个数称为向量组的秩。
+3. 所有极大线性无关组的向量个数相同，即秩唯一。
+
+极大线性无关组是理解向量组结构、计算秩及基的重要工具。
 
 ### 1.b.δ 基与维数
 
