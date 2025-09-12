@@ -278,13 +278,3 @@ $\displaystyle \underbrace{[\boldsymbol\alpha_1 \ \boldsymbol\alpha_2 \ \cdots \
 }_{s \times r}^{\LARGE L^\top}$
 </div>
 ```
-
-
-
-## 顺路完成的目标
-
-1. 学会盲打，并尽可能提高效率
-
-2. 补充机器学习的知识点，并完成深度学习和强化学习的部分
-
-   

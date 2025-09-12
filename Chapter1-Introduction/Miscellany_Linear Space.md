@@ -233,29 +233,40 @@ $$
 - $n$ 维单位向量组线性无关
 - 任何由 $n + k$ 个 $n$ 维向量组成的向量组必定线性相关
 
-### 1.b.γ 极大线性无关组
+### 1.b.γ 极大线性无关组及其性质
 
-设向量组 $\lbrace \boldsymbol{\alpha}_1, \boldsymbol{\alpha}_2, \dots, \boldsymbol{\alpha}_s \rbrace$ 属于线性空间 $V$，若该组向量线性无关，且在加入任意新的向量后，新的向量组都线性相关，则称这组向量是该向量组的一个**极大线性无关组**，也叫做**极大无关组**。
+设向量组 $\boldsymbol\alpha_1, \boldsymbol\alpha_2, \dots, \boldsymbol\alpha_n \in V$，令 $I = \lbrace 1, 2, \dots, n \rbrace$，取 $R \subseteq I$，记 $A_R = \lbrace \boldsymbol\alpha_i \mid i \in R \rbrace$ ， $A_{R^c} = \lbrace \boldsymbol\alpha_i \mid i \in I \setminus R \rbrace$。若 $A_R$ 线性无关，且对任意 $j \in R^c$，集合 $A_{R \cup \lbrace j \rbrace}$ 都线性相关，则称 $A_R$ 是在 $\lbrace \boldsymbol\alpha_1, \dots, \boldsymbol\alpha_n \rbrace$ 中的**极大线性无关组**。
 
-具体来说，若对任意 $\boldsymbol{\beta} \in V$，加入后使得
+**性质 1（存在性）**
+ 对有限向量组 $\lbrace \boldsymbol{\alpha}_1, \dots, \boldsymbol{\alpha}_n \rbrace$，极大线性无关组一定存在
 
-{α1,…,αs,β}\lbrace \boldsymbol{\alpha}_1, \dots, \boldsymbol{\alpha}_s, \boldsymbol{\beta} \rbrace
+**性质 2（张成性）**
+ 若 $A_R$ 是极大线性无关组，则有 $\displaystyle \boldsymbol{L}(\boldsymbol{\alpha}_1, \dots, \boldsymbol{\alpha}_n) = \boldsymbol{L}(A_R)$。
 
-线性相关，则 $\lbrace \boldsymbol{\alpha}_1, \dots, \boldsymbol{\alpha}_s \rbrace$ 是极大线性无关组。
+> 若存在 $\boldsymbol{\alpha}_j \notin \boldsymbol{L}(A_R)$，则 $A_{R \cup \lbrace j \rbrace}$ 仍线性无关，与极大性矛盾。
 
-极大线性无关组具有以下性质：
+**性质 3（等基数）**
+ 若 $A_R$ 和 $A_S$ 都是 $\lbrace \boldsymbol{\alpha}_1, \dots, \boldsymbol{\alpha}_n \rbrace$ 中的极大线性无关组，则 $|R| = |S|=\operatorname{r}(\boldsymbol{\alpha}_1, \dots, \boldsymbol{\alpha}_n)$。
 
-1. 极大线性无关组是原向量组的一个线性无关子集。
-2. 该组向量的个数称为向量组的秩。
-3. 所有极大线性无关组的向量个数相同，即秩唯一。
+**性质 4（延拓性）** ——空间任一线性无关组都可扩展为基（加上原向量组 $\lbrace \boldsymbol{\alpha}_1, \dots, \boldsymbol{\alpha}_n \rbrace$ 的子集）
+若 $B = \lbrace \boldsymbol{\beta}_1, \dots, \boldsymbol{\beta}_r \rbrace\subseteq \boldsymbol{L}(\boldsymbol{\alpha}_1, \dots, \boldsymbol{\alpha}_n)$ 且 $B$ 线性无关，则存在 $S \subseteq I$，使得 $B \cup A_S$ 是原向量组的一个极大线性无关组。
 
-极大线性无关组是理解向量组结构、计算秩及基的重要工具。
+**性质 5（替换性）**
+ 若 $B = \lbrace \boldsymbol{\beta}_1, \dots, \boldsymbol{\beta}_r \rbrace\subseteq \boldsymbol{L}(\boldsymbol{\alpha}_1, \dots, \boldsymbol{\alpha}_n)$ 且 $B$ 线性无关，$C = \lbrace \boldsymbol{\gamma}_1, \dots, \boldsymbol{\gamma}_s \rbrace$ 张成相同的子空间，则 $r \leq s$，且可以从 $C$ 中替换出 $r$ 个向量与 $B$ 交换，得到新的生成元组而不改变生成空间。
+
+> 证明分为 $r$ 步：
+>
+>  第1步，因为 $\boldsymbol{\beta}_1$ 在子空间中，所以 $\boldsymbol{\beta}_1$ 可以表示为 $\boldsymbol{C}$ 中向量的线性组合，即 $\displaystyle \boldsymbol{\beta}_1 = a_1 \boldsymbol{\gamma}_1 + a_2 \boldsymbol{\gamma}_2 + \dots + a_s \boldsymbol{\gamma}_s$。至少有一个系数 $a_j \neq 0$，否则 $\boldsymbol{\beta}_1$ 会是零向量，这与 $B$ 线性无关矛盾。不妨设 $a_1 \neq 0$，则可以解出 $\boldsymbol{\gamma}_1$ 为 $\displaystyle \boldsymbol{\gamma}_1 = \frac{1}{a_1} \boldsymbol{\beta}_1 - \frac{a_2}{a_1} \boldsymbol{\gamma}_2 - \dots - \frac{a_s}{a_1} \boldsymbol{\gamma}_s$，于是 $\boldsymbol{L}(\boldsymbol{\gamma}_1, \boldsymbol{\gamma}_2, \dots, \boldsymbol{\gamma}_s) = \boldsymbol{L}(\boldsymbol{\beta}_1, \boldsymbol{\gamma}_2, \dots, \boldsymbol{\gamma}_s)$。
+>
+> 第2步，同理处理 $\boldsymbol\beta_2$。 $\boldsymbol\beta_2$ 可以表示为 $\boldsymbol\beta_1, \boldsymbol\gamma_2, \dots, \boldsymbol\gamma_s$ 的线性组合。由于 $B$ 的线性无关性，必然存在某个 $\boldsymbol\gamma_j$（前面步骤中未被替换过）的系数 $a_k \neq 0$。假设是 $\boldsymbol\gamma_2$，则解出 $\displaystyle \boldsymbol\gamma_2 = \frac{1}{a_2} \boldsymbol\beta_2 - \frac{a_1}{a_2} \boldsymbol\beta_1 - \sum_{i=3}^s \frac{a_i}{a_2} \boldsymbol\gamma_i$，并将 $\boldsymbol\gamma_2$ 替换为 $\boldsymbol\beta_2$，得到新集合 $\lbrace \boldsymbol\beta_1, \boldsymbol\beta_2, \boldsymbol\gamma_3, \dots, \boldsymbol\gamma_s \rbrace$。
+>
+> 证明 $r \leq s$：若$r > s$，则 $\boldsymbol\gamma$ 先被替换完，则第 $s+1$ 步时 $\boldsymbol\beta_{s+1}$ 可以表示为 $\boldsymbol\beta_1, \boldsymbol\beta_2, \dots, \boldsymbol\beta_s$ 的线性组合，这与 $B$ 线性无关矛盾
+>
+> 如此归纳到第 $r$ 步，最终得到的向量组 $\lbrace \boldsymbol\beta_1, \dots, \boldsymbol\beta_r, \boldsymbol\gamma_k, \dots \rbrace$ 仍然生成原来的子空间
 
 ### 1.b.δ 基与维数
 
-设 $V$ 是域 $F$ 上的线性空间.
-
-若一组向量 $\lbrace \boldsymbol{\alpha}_1, \ldots, \boldsymbol{\alpha}_n \rbrace \subset V$ 既线性无关，又张成 $V$，则称这组向量是 $V$ 的一组**基**.
+设 $V$ 是域 $F$ 上的线性空间，若一组向量 $\lbrace \boldsymbol{\alpha}_1, \ldots, \boldsymbol{\alpha}_n \rbrace \subset V$ 既线性无关，又张成 $V$，则称这组向量是 $V$ 的一组**基**.
 
 基的定义意味着：
 
@@ -283,24 +294,6 @@ $\displaystyle \boldsymbol{\beta} = k_1 \boldsymbol{\alpha}_1 + \cdots + k_n \bo
 $\displaystyle [\boldsymbol{\beta}] = \begin{bmatrix}k_1 \ \vdots \ k_n \end{bmatrix}$，
 
 称为 $\boldsymbol{\beta}$ 相对于该基的**坐标向量**.
-
-------
-
-### 1.b.ζ 基变换与坐标变换（留待后续章节详细展开）
-
-不同基下，向量的坐标向量不同.若已知两个基之间的变换关系（变换矩阵），可实现坐标向量间的转换.后续将在“基变换”章节详细说明.
-
-------
-
-是否需要我继续整理 **1.c 子空间与向量组的秩**？也欢迎你就刚才内容提出反驳、补充或新的要求.
-
-
-
-
-
-
-
-明白，以下是完整的 **1.c 子空间与向量组的秩** 部分，延续你此前的风格与编号系统，分为三个小节：$\text{1.c.}\alpha$（定义与判别）、$\text{1.c.}\beta$（向量组的秩）、$\text{1.c.}\gamma$（子空间的和、交与维数公式）.
 
 ------
 
@@ -335,16 +328,12 @@ $\displaystyle [\boldsymbol{\beta}] = \begin{bmatrix}k_1 \ \vdots \ k_n \end{bma
 1. $V = \mathbb{R}^3$ 中所有形如 $(x, y, 0)$ 的向量构成一个二维子空间；
 2. $\mathbb{M}_{n \times n}(F)$ 中所有对称矩阵构成其一个子空间；
 3. 多项式空间 $K[x]$ 中次数 $\leq 2$ 的多项式组成 $K[x]_3$ 是 $K[x]$ 的子空间；
-4. 任意向量组 $\boldsymbol{\alpha}_1, \ldots, \boldsymbol{\alpha}_n$ 张成的集合 $\langle \boldsymbol{\alpha}_1, \ldots, \boldsymbol{\alpha}_n \rangle$ 是一个子空间；
+4. $V$ 中任意向量组 $\boldsymbol{\alpha}_1, \ldots, \boldsymbol{\alpha}_n$ 张成的集合 $\langle \boldsymbol{\alpha}_1, \ldots, \boldsymbol{\alpha}_n \rangle$ 是 $V$ 的一个子空间；
 5. $\lbrace \boldsymbol{0} \rbrace$ 和 $V$ 本身都是 $V$ 的子空间，称为**零子空间**与**平凡子空间**.
 
-### 1.b.β 向量组生成的子空间（张成空间）
+### 1.b.β 向量组张成空间和秩
 
-$\displaystyle \text{span}(\boldsymbol{\alpha}_1, \ldots, \boldsymbol{\alpha}_n) =\boldsymbol L(\boldsymbol{\alpha}_1, \ldots, \boldsymbol{\alpha}_n) =\lbrace k_1 \boldsymbol{\alpha}_1 + \cdots + k_n \boldsymbol{\alpha}_n \mid k_i \in F \rbrace$，称为 $S$ **生成的子空间**，也可记作 $\langle \boldsymbol{\alpha}_1, \ldots, \boldsymbol{\alpha}_n \rangle$.它是 $V$ 的子空间，且是包含 $\lbrace \boldsymbol \alpha_1, \ldots, \boldsymbol{\alpha}_n\rbrace$ 的最小子空间.
-
-------
-
-### 1.c.β 向量组的秩
+$\displaystyle \text{Span}(\boldsymbol{\alpha}_1, \ldots, \boldsymbol{\alpha}_n) =\boldsymbol L(\boldsymbol{\alpha}_1, \ldots, \boldsymbol{\alpha}_n) =\lbrace k_1 \boldsymbol{\alpha}_1 + \cdots + k_n \boldsymbol{\alpha}_n \mid k_i \in F \rbrace$，称为 $S$ **生成的子空间**，也可记作 $\langle \boldsymbol{\alpha}_1, \ldots, \boldsymbol{\alpha}_n \rangle$.它是 $V$ 的子空间，且是包含 $\lbrace \boldsymbol \alpha_1, \ldots, \boldsymbol{\alpha}_n\rbrace$ 的最小子空间
 
 设 $V$ 是域 $F$ 上的线性空间，$\boldsymbol{\alpha}_1, \ldots, \boldsymbol{\alpha}_s \in V$，则称
 
@@ -353,54 +342,22 @@ $\displaystyle \text{span}(\boldsymbol{\alpha}_1, \ldots, \boldsymbol{\alpha}_n)
 
 ------
 
-**等价定义**：
+### 1.c.γ 线性空间的基
 
-- 向量组 $\lbrace \boldsymbol{\alpha}_1, \ldots, \boldsymbol{\alpha}_s \rbrace$ 中取出一个极大线性无关子集，其向量个数就是该向量组的秩.
+**线性相关与无关**
 
-**性质与结论**：
+设 $V$ 是域 $K$ 上的线性空间。
 
-1. $\displaystyle \operatorname{rank}(\boldsymbol{\alpha}_1, \ldots, \boldsymbol{\alpha}_s) \leq s$；
-2. 若该组向量线性无关，则秩为 $s$；
-3. 若向量组中存在线性相关关系，则秩小于 $s$；
-4. 若 $\boldsymbol{\alpha}_1, \ldots, \boldsymbol{\alpha}_s$ 张成子空间 $U$，且 $\dim U = r$，则一定存在 $r$ 个线性无关向量组成 $U$ 的一个基，其余向量可由该基线性表出.
+- $V$ 的一个有限子集 $\lbrace\alpha_1, \ldots, \alpha_s\rbrace$ 称为**线性相关/无关** $\Longleftrightarrow$ $\alpha_1, \ldots, \alpha_s$ **线性相关相关/无关**。
+- $V$ 的一个无限子集 $S$ 称为**线性相关** $\Longleftrightarrow$  $S$ 中存在一个有限子集线性相关
+- $V$ 的一个无限子集 $S$ 称为**线性无关** $\Longleftrightarrow$  $S$ 中任意一个有限子集线性无关
 
-------
+**基**
 
-**例**：
+设 $V$ 是域 $K$ 上的线性空间。若 $S$（有限或无限子集）  $\subset V$ 同时满足：
 
-向量组 $\left\lbrace \begin{bmatrix} 1 \ 2 \end{bmatrix},\ \begin{bmatrix} 3 \ 6 \end{bmatrix},\ \begin{bmatrix} 1 \ 0 \end{bmatrix} \right\rbrace$ 的秩为 2，其中 $\begin{bmatrix} 3 \ 6 \end{bmatrix}$ 是 $\begin{bmatrix} 1 \ 2 \end{bmatrix}$ 的倍数，可去掉.
-
-------
-
-### 1.c.γ 子空间的和、交与维数公式
-
-设 $U, W$ 是线性空间 $V$ 的两个子空间，定义：
-
-- **交集** $U \cap W$：所有同时属于 $U$ 和 $W$ 的向量，仍为子空间；
-- **和空间** $U + W$：所有可表示为 $\boldsymbol{u} + \boldsymbol{w}$（其中 $\boldsymbol{u} \in U,\ \boldsymbol{w} \in W$）的向量所组成的集合，是包含 $U$ 与 $W$ 的最小子空间.
-
-形式化定义：
-
-$\displaystyle U + W = \lbrace \boldsymbol{\alpha} \in V \mid \boldsymbol{\alpha} = \boldsymbol{u} + \boldsymbol{w},\ \boldsymbol{u} \in U,\ \boldsymbol{w} \in W \rbrace$
-
-------
-
-**维数公式（Grassmann 公式）**：
-
-设 $U, W \subseteq V$ 是有限维子空间，则有：
-
-$\displaystyle \dim(U + W) = \dim U + \dim W - \dim(U \cap W)$
-
-**推论**：
-
-- 若 $U \cap W = \lbrace \boldsymbol{0} \rbrace$，则 $\displaystyle \dim(U + W) = \dim U + \dim W$，称 $U, W$ **直和**；
-- 若 $U + W = V$ 且 $U \cap W = \lbrace \boldsymbol{0} \rbrace$，则称 $V$ 是 $U$ 与 $W$ 的**直和**，记作 $V = U \oplus W$.
-
-------
-
-是否需要我现在将整个 `1.a + 1.b + 1.c` 生成一个完整 LaTeX 文件或 Markdown 模板？或者我们进入 **1.d 向量的坐标变换与过渡矩阵**？
-
-
+1. **生成性**： $V$ 中任意一个向量可以由 $S$ 中的有限多个向量线性表出；
+2. **线性无关性**： $S$ 是线性无关的
 
 
 
