@@ -359,50 +359,102 @@ $\displaystyle \text{Span}(\boldsymbol{\alpha}_1, \ldots, \boldsymbol{\alpha}_n)
 1. **生成性**： $V$ 中任意一个向量可以由 $S$ 中的有限多个向量线性表出；
 2. **线性无关性**： $S$ 是线性无关的
 
+则称 $S$ 为线性空间 $V$ 上的<u>一个</u>基
 
+设 $V = {0}$，由于 $0$ 不能出现在任何线性无关组中，因此 $V$ 的基是**空集** $\varnothing$。
 
+按照约定：$\dim \{0\} = 0.$
 
+------
 
+### 1.c.δ 线性空间的维数
 
+**定义**：设 $V$ 是域 $K$ 上的线性空间。
 
+- 若 $V$ 存在一个有限基，则称 $V$ 为**有限维线性空间**。此时所有基所含向量的个数相同，这个数 $n$ 称为 $V$ 的**维数**，记作 $\dim V=n$。
 
+  **推论（关于 $\dim V = n$ 的性质）**：设 $\dim V = n$，则有：
 
-# Derivation 2——SVD
+  1. $V$ 中任意 $n$ 个线性无关向量必是 $V$ 的一组基。
+  2. $V$ 中任意 $n$ 个向量生成 $V$ 当且仅当它们是 $V$ 的一组基。
+  3. $V$ 中任意 $n+1$ 个向量必然线性相关。
 
-## 2.a 铺垫知识
+- 若 $V$ 不存在有限基，则称 $V$ 为**无限维线性空间**。此时说 $V$ 的维数是**无限**，记作 $\dim V=\infty$。
 
-#### 特征值eigenvalue 和 特征向量eigenvector（方阵才有）
+**维数相等**
 
-设矩阵 $A \in \mathbb{R}^{n \times n}$，如果存在一个非零向量 $x \in \mathbb{R}^n$ 和一个标量 $\lambda \in \mathbb{R}$（或 $\mathbb{C}$），使得 $\displaystyle A x = \lambda x$，那么称 $\lambda$ 是矩阵 $A$ 的特征值（eigenvalue），$x$ 是对应的特征向量（eigenvector）.
+有限维空间的一个重要结论是：$\text{若 V 是有限维空间，则任意两个基的向量个数相等。}$
 
-这个等式表示：矩阵 $A$ 作用在向量 $x$ 上，只是将它“拉伸”或“缩放”（改变大小），而不改变其方向.
+若 $V$ 不是有限维的，则称 $V$ 是**无限维空间**。在这种情况下，$V$ 的任何一个基必定是无限集。
+ 原因是：若存在一个有限基，则 $V$ 就是有限维的，与假设矛盾。
 
-特征值的求解可以转化为：$\displaystyle \vert A-\lambda I\vert = 0$，其中 $I \in \mathbb{R}^{n \times n}$是单位矩阵.
+| 空间                                                   | 基                         | 维数   |
+| ------------------------------------------------------ | -------------------------- | ------ |
+| $V = {0}$                                              | $\varnothing$              | $0$    |
+| $\mathbb{R}^n$                                         | ${e_1, e_2, \ldots, e_n}$  | $n$    |
+| 所有次数 $\leq m$ 的实系数多项式空间 $P_m(\mathbb{R})$ | ${1, x, x^2, \ldots, x^m}$ | $m+1$  |
+| 所有实系数多项式空间 $P(\mathbb{R})$                   | 无有限基                   | 无限维 |
 
-### 1.a.ii 几何重数algebraic multiplicity 和 代数重数geometric multiplicity（方阵，针对某一个特征值 $\lambda$ 才有）
+**坐标的定义**：设 ${e_1, \dots, e_n}$ 是 $V$ 的一组基，则 $V$ 中任意向量 $v$ 都可以唯一表示为基向量的线性组合：
 
-设矩阵 $A \in \mathbb{R}^{n \times n}$ ，对于其一个特征值 $\lambda$，可以定义：
+$$v = a_1 e_1 + a_2 e_2 + \dots + a_n e_n,$$
 
-**几何重数**（geometric multiplicity）是指线性方程 $(A - \lambda I)x = 0$ 的解空间维数，也就是特征值 $\lambda$ 对应的特征向量所构成子空间的维数.换句话说，它等于矩阵 $A - \lambda I$ 的零空间的维度.
+其中 $a_1, \dots, a_n \in K$。将向量 $v$ 在基 ${e_1, \dots, e_n}$ 下的系数组成的 $n$ 维列向量
 
-**代数重数**（algebraic multiplicity）是指 $\lambda$ 作为特征多项式 $\displaystyle \vert A-\lambda I\vert$ 的一个根的重数（ $(t−λ)$ 的次数）.
+$${e} = \begin{bmatrix} a_1 \\ a_2 \\ \vdots \\ a_n \end{bmatrix}$$
 
-几何重数总是小于或等于代数重数.即$\displaystyle \text{geom. mult.}(\lambda) \leq \text{alg. mult.}(\lambda)$ 
+称为 $v$ 相对于基 ${e_1, \dots, e_n}$ 的**坐标**。
 
-## 1.b 相似对角化 Similar Diagonalization
+好的 👍 你现在已经整理了 **维数**、**有限维与无限维的区别**、**基的唯一向量数** 以及 **坐标的定义**，很完整了。接下来在 **1.c.ο 子空间的交与并** 这一小节，可以这样自然衔接：
 
-相似对角化是指对一个方阵 $A \in \mathbb{C}^{n \times n}$，若存在一个可逆矩阵 $P$ 使得 $P^{-1} A P = D$，其中 $D$ 是**对角矩阵**，则称 $A$ **可相似对角化**（is diagonalizable）.
+------
 
-$D$ 的对角元是 $A$ 的特征值，$P$ 的列向量是 $A$ 的特征向量.
+### 1.c.ε 子空间的交与并
 
-若 $A$ 是**实对称矩阵**或**复正规矩阵**，还可以通过**酉相似对角化**（unitary similarity）来实现
+**定义**：设 $V$ 是域 $K$ 上的线性空间，$U, W \subseteq V$ 为 $V$ 的两个子空间。
 
-SVD 则对所有实或复矩阵 $A \in \mathbb{C}^{m \times n}$ 都适用.它将 $A$ 分解为 $A = U \Sigma V^*$，其中 $U \in \mathbb{C}^{m \times m}$ 和 $V \in \mathbb{C}^{n \times n}$ 是酉矩阵，$\Sigma \in \mathbb{R}^{m \times n}$ 是对角矩阵，对角元为非负的奇异值，表示矩阵在正交基下的伸缩强度.
+- **交**：$U \cap W = \lbrace v \in V \mid v \in U \text{ 且 } v \in W \rbrace$，仍然是 $V$ 的子空间。
+- **并**：$U \cap W = \lbrace v \in V \mid v \in U \text{ 或 } v \in W \rbrace$ 不一定是 $V$ 的子空间，因为 $U \cup W$ 未必对加法封闭。
+- $和$：定义$U + W = \lbrace u + w \mid u \in U\rbrace$ 为 $U$ 与 $W$ 的**和**。这是包含 $U \cup W$ 的最小子空间。
 
-两者的主要区别在于，相似对角化是以 $P^{-1} A P$ 的形式对矩阵在自身空间中简化，它反映的是矩阵的谱结构和特征向量性质，适用于研究矩阵幂、稳定性等问题；而 SVD 是以 $U^* A V$ 的形式将矩阵视为从一个空间映射到另一个空间的变换，关注的是矩阵的范数结构、投影和压缩性质.SVD 总能应用于任意矩阵，而相似对角化则不然.
+**维数公式（有限维情形）**：
+若 $U, W$ 是有限维子空间，则 $\dim U + \dim W =\dim(U + W) + \dim(U \cap W).$
 
-举个例子，设 $A = \begin{bmatrix} 2 & 1 \ 0 & 2 \end{bmatrix}$，这个矩阵只有一个特征值 2，对应一个线性无关的特征向量，因此它不可对角化，但仍然可以进行 SVD 分解，其奇异值为非负实数，分解形式为 $A = U \Sigma V^T$，其中 $U$ 和 $V$ 是正交矩阵.
+------
 
-总结来说，SVD 是一种更通用的分解方法，它总是存在并提供一组正交基，而相似对角化仅适用于特定类型的方阵，两者的目标和应用领域也不同.
+直和
 
-SVD 
+很好 👍，你已经把交、并、和写清楚了，接下来补充 **直和** 部分：
+
+------
+
+### 1.c.ζ 子空间的直和
+
+**定义**：设 $U, W \subseteq V$ 为两个子空间。若
+
+1. $U \cap W = {0}$；
+2. $U + W = V$；
+
+则称 $V$ 是 $U$ 与 $W$ 的**直和**，记作 $V = U \oplus W$.
+
+更一般地，若 $U_1, U_2, \dots, U_k \subseteq V$ 满足
+
+- $V = U_1 + U_2 + \cdots + U_k$，
+- 并且对于每个 $i$，$U_i \cap (U_1 + \cdots + U_{i-1} + U_{i+1} + \cdots + U_k) = {0}$，
+
+则称 $V$ 是 $U_1, \dots, U_k$ 的直和，记作 $V = U_1 \oplus U_2 \oplus \cdots \oplus U_k$.
+
+------
+
+**性质**：
+
+1. 若 $V = U \oplus W$，则 $V$ 中每个向量 $v$ 都能唯一表示为
+
+   $v = u + w, \quad u \in U, \; w \in W.$
+
+2. 在有限维情形下，若 $V = U \oplus W$，则
+
+   $\dim V = \dim U + \dim W$.
+
+------
+
