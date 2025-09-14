@@ -35,17 +35,23 @@
   <!-- Docsify 配置 -->
   <script>
   // 修正图片路径函数，把含有“images/”的src统一替换为绝对路径
-  function fixImagePaths() {
-    const basePath = '/images/';  // 你图片实际存放的根路径
-    document.querySelectorAll('img').forEach(img => {
-      const src = img.getAttribute('src');
-      // 如果src包含images/，提取文件名部分并替换成basePath开头的路径
-      if (src && src.includes('images/')) {
-        const fileName = src.split('images/').pop();  // 取images/后面的文件名及路径
-        img.setAttribute('src', basePath + fileName);
-      }
-    });
-  }
+function fixImagePaths() {
+  // 判断当前环境：GitHub Pages 或 本地
+  const isGithub = location.hostname.includes('github.io');
+  // GitHub Pages 根路径
+  const githubBase = '/optimisation/images/';
+  // 本地 docsify serve 根路径
+  const localBase = '/images/';
+  const basePath = isGithub ? githubBase : localBase;
+  document.querySelectorAll('img').forEach(img => {
+    const src = img.getAttribute('src');
+    if (src && src.includes('images/')) {
+      const fileName = src.split('images/').pop(); // 取 images/ 后面的文件名
+      img.setAttribute('src', basePath + fileName);
+    }
+  });
+}
+
 
   // Docsify配置，所有设置都写在同一个对象里，避免多次赋值覆盖
   window.$docsify = {
