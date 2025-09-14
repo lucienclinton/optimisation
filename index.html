@@ -36,7 +36,7 @@
   <script>
   // 修正图片路径函数，把含有“images/”的src统一替换为绝对路径
   function fixImagePaths() {
-    const basePath = '/optimisation/images/';  // 你图片实际存放的根路径
+    const basePath = '/images/';  // 你图片实际存放的根路径
     document.querySelectorAll('img').forEach(img => {
       const src = img.getAttribute('src');
       // 如果src包含images/，提取文件名部分并替换成basePath开头的路径
@@ -90,7 +90,7 @@
 
 
   <!-- 加载 Docsify 和 Mermaid -->
-  <script src="//cdn.jsdelivr.net/npm/docsify/lib/docsify.min.js"></script>
+  <script src="//cdn.jsdelivr.net/npm/docsify@4/lib/docsify.min.js"></script>
   <script src="//cdn.jsdelivr.net/npm/mermaid/dist/mermaid.min.js"></script>
 </body>
 </html>

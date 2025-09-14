@@ -4,19 +4,19 @@
 
 ### 2.a.α 铺垫知识——定义
 
-**特征值eigenvalue和特征向量eigenvector：**设矩阵 $A \in \mathbb{R}^{n \times n}$，如果存在一个非零向量 $x \in \mathbb{R}^n$ 和一个标量 $\lambda \in \mathbb{R}$（或 $\mathbb{C}$），使得
+**特征值eigenvalue和特征向量eigenvector：** 设矩阵 $A \in \mathbb{R}^{n \times n}$，如果存在一个非零向量 $x \in \mathbb{R}^n$ 和一个标量 $\lambda \in \mathbb{R}$（或 $\mathbb{C}$），使得
 $$
 \displaystyle A x = \lambda x，
 $$
 那么称 $\lambda$ 是矩阵 $A$ 的特征值（eigenvalue），$x$ 是对应的特征向量（eigenvector）.
 
-**特征多项式：**设 $A \in \mathbb{C}^{n \times n}$，定义矩阵 $A-\lambda I$，其中 $I \in \mathbb{R}^{n \times n}$是单位矩阵，$\lambda$ 是一个变量。矩阵 $A$ 的特征多项式为：
+**特征多项式：** 设 $A \in \mathbb{C}^{n \times n}$，定义矩阵 $A-\lambda I$，其中 $I \in \mathbb{R}^{n \times n}$是单位矩阵，$\lambda$ 是一个变量。矩阵 $A$ 的特征多项式为：
 $$
 p_A(\lambda) = \vert A-\lambda I\vert
 $$
 特征值的求解可以转化为：$\displaystyle \vert A-\lambda I\vert = 0$ ,<br>
 
-设矩阵 $A \in \mathbb{R}^{n \times n}$ ，**对于其一个特征值 $\lambda$，**可以定义：
+设矩阵 $A \in \mathbb{R}^{n \times n}$ ，**对于其一个特征值 $\lambda$，** 可以定义：
 
 **几何重数/度数**（geometric multiplicity, g.m.）是指线性方程 $(A - \lambda I)x = 0$ 的**解空间维数**，也就是特征值 $\lambda$ 对应的特征向量所构成子空间的维数.
 
@@ -40,13 +40,14 @@ $$
 
 计算 $\ker(A - 2I)$ 和 $\ker(A - 3I)$ 的维数：
 
-- $A - 2I = \begin{bmatrix}
+- $$A - 2I = \begin{bmatrix}
   0 & 1 & 0 & 0 & 0 \newline
   0 & 0 & 1 & 0 & 0 \newline
   0 & 0 & 0 & 0 & 0 \newline
   0 & 0 & 0 & 1 & 0 \newline
   0 & 0 & 0 & 0 & 1
-  \end{bmatrix}$
+  \end{bmatrix}$$
+
   其秩为4，所以 $\dim\ker(A - 2I) = n - \operatorname{r}(A - \lambda I)=5-4=1$。
   即 $\text{g.m.}(2) = 1 < \text{a.m.}(2) = 3$。
 - 同理 $\text{g.m.}(3) = 1 < \text{a.m.}(3) = 2$。
@@ -73,13 +74,13 @@ $\displaystyle (A-\lambda_j I)\Bigl(\sum_{i=1}^k c_i u_i\Bigr) = \sum_{i=1}^k c_
 
  $\because\lambda_i \neq \lambda_j$，$\therefore\displaystyle \sum_{i,i\neq j}^k c_i  u_i = 0$ ，而 $\displaystyle \sum_{i=1}^k c_i u_i = 0$ ， $\therefore c_ju_j=0$ ，$\therefore c_j=0,\quad \forall j$。
 
-$\because\displaystyle \sum_{i=1}^k c_i u_i = 0\Longrightarrow c_j=0,\quad \forall j $ ，$\therefore{u_1,u_2,\dots,u_k}$ 线性无关。
+$\because\displaystyle \sum_{i=1}^k c_i u_i = 0\Longrightarrow c_j=0,\quad \forall j$ ，$\therefore{u_1,u_2,\dots,u_k}$ 线性无关。
 
 因此，不同特征值对应的特征向量一定线性无关。
 
 **矩阵的秩与几何重数的总和没有直接关系**
 
-![01e-几何重数与代数重数的关系.jpg](..\images\01e-几何重数与代数重数的关系.jpg)
+![01e-几何重数与代数重数的关系.jpg](../images/01e-几何重数与代数重数的关系.jpg)
 
 ## 2.b 相似对角化Similar Diagonalization (SD) /特征值分解Eigen-Value Decomposition (EVD)
 
@@ -164,7 +165,7 @@ $A$ 可对角化的**充分条件**是：
 
     $\because\lambda_i \neq \lambda_j$，$\therefore\displaystyle \sum_{i,i\neq j}^n c_i  u_i = 0$ ，而 $\displaystyle \sum_{i=1}^n c_i u_i = 0$ ， $\therefore c_ju_j=0$ ，$\therefore c_j=0,\quad \forall j$。
 
-3. $\because\displaystyle \sum_{i=1}^n c_i u_i = 0\Longrightarrow c_j=0,\quad \forall j $ ，$\therefore{u_1,u_2,\dots,u_n}$ 线性无关。$\therefore A$ 有 $n$ 个线性无关的特征向量，即 $A$ 可对角化。
+3. $\displaystyle \because\sum_{i=1}^n c_i u_i = 0\Longrightarrow c_j=0,\quad \forall j $ ，$\therefore{u_1,u_2,\dots,u_n}$ 线性无关。$\therefore A$ 有 $n$ 个线性无关的特征向量，即 $A$ 可对角化。
 
 **【例】是否能相似对角化要考虑数域**  考虑矩阵 $A = \begin{bmatrix} 0 & -1 & 0 \newline 1 & 0 & 0 \newline 0 & 0 & 2 \end{bmatrix}$.
 
