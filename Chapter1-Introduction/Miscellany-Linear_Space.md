@@ -59,18 +59,18 @@
     以原点为起点的所有 $n$ 维向量构成的集合 ${\mathbb{R}}^n$ ，在向量加法和数量乘法下，构成实数域 $\mathbb{R}$ 上的一个线性空间；
 
 2. **$F^n$：域 $F$ 上的 $n$ 维向量空间/线性空间**
-    域 $F$ 上所有 $n$ 元有序组组成的集合 $F^n$，定义加法为对应分量相加，数量乘法为 $K$ 中元素与各分量分别相乘.这是域 $F$ 上的 $n$ 维向量空间；
+    域 $F$ 上所有 $n$ 元有序组组成的集合 $F^n$，定义加法为对应分量相加，数量乘法为 $\mathbb{K}$ 中元素与各分量分别相乘.这是域 $F$ 上的 $n$ 维向量空间；
 
-3. **矩阵空间 $\mathbb{M}_{s \times n}(K)$**
-    数域 $K$ 上所有 $s \times n$ 矩阵构成的集合，在矩阵加法和数量乘法（广播）下，是数域 $K$ 上的线性空间；
+3. **矩阵空间 $\mathbb{M}_{s \times n}(\mathbb{K})$**
+    数域 $\mathbb{K}$ 上所有 $s \times n$ 矩阵构成的集合，在矩阵加法和数量乘法（广播）下，是数域 $\mathbb{K}$ 上的线性空间；
 
-4. **多项式空间 $K[x]$**
-    数域 $K$ 上（以数域 $K$ 中元素作为系数的）所有一元多项式构成的集合，在多项式加法和数量乘法下，构成数域 $K$ 上的一个线性空间；
+4. **多项式空间 $\mathbb{K}[x]$**
+    数域 $\mathbb{K}$ 上（以数域 $\mathbb{K}$ 中元素作为系数的）所有一元多项式构成的集合，在多项式加法和数量乘法下，构成数域 $\mathbb{K}$ 上的一个线性空间；
 
-5. **次数小于 $n$ 的多项式空间 $K[x]_n$**
-    数域 $K$ 上所有次数小于 $n$ 的一元多项式在加法和数量乘法下仍封闭，构成一个 $K$ 上的线性空间，记作
+5. **次数小于 $n$ 的多项式空间 $\mathbb{K}[x]_n$**
+    数域 $\mathbb{K}$ 上所有次数小于 $n$ 的一元多项式在加法和数量乘法下仍封闭，构成一个 $\mathbb{K}$ 上的线性空间，记作
 
-   $K[x]_n = \{f(x) \in K[x] \mid \deg(f) < n\}$；
+   $\mathbb{K}[x]_n = \{f(x) \in \mathbb{K}[x] \mid \deg(f) < n\}$；
 
 6. **复数空间 $\mathbb{C}$ 作为实数域 $\mathbb{R}$ 上的线性空间**
     复数集 $\mathbb{C}$ 可以看作是实数域 $\mathbb{R}$ 上的一个线性空间。其加法为复数加法，数量乘法为实数与复数相乘；
@@ -278,8 +278,8 @@ $$
 例如：
 
 - $\dim \mathbb{R}^n = n$；
-- $\dim K[x]_n = n$（次数小于 $n$ 的一元多项式空间）；
-- $\dim \mathbb{M}_{s \times t}(K) = st$；
+- $\dim \mathbb{K}[x]_n = n$（次数小于 $n$ 的一元多项式空间）；
+- $\dim \mathbb{M}_{s \times t}(\mathbb{K}) = st$；
 
 ------
 
@@ -327,7 +327,7 @@ $\displaystyle [\boldsymbol{\beta}] = \begin{bmatrix}k_1 \ \vdots \ k_n \end{bma
 
 1. $V = \mathbb{R}^3$ 中所有形如 $(x, y, 0)$ 的向量构成一个二维子空间；
 2. $\mathbb{M}_{n \times n}(F)$ 中所有对称矩阵构成其一个子空间；
-3. 多项式空间 $K[x]$ 中次数 $\leq 2$ 的多项式组成 $K[x]_3$ 是 $K[x]$ 的子空间；
+3. 多项式空间 $\mathbb{K}[x]$ 中次数 $\leq 2$ 的多项式组成 $\mathbb{K}[x]_3$ 是 $\mathbb{K}[x]$ 的子空间；
 4. $V$ 中任意向量组 $\boldsymbol{\alpha}_1, \ldots, \boldsymbol{\alpha}_n$ 张成的集合 $\langle \boldsymbol{\alpha}_1, \ldots, \boldsymbol{\alpha}_n \rangle$ 是 $V$ 的一个子空间；
 5. $\lbrace \boldsymbol{0} \rbrace$ 和 $V$ 本身都是 $V$ 的子空间，称为**零子空间**与**平凡子空间**.
 
@@ -346,7 +346,7 @@ $\displaystyle \text{Span}(\boldsymbol{\alpha}_1, \ldots, \boldsymbol{\alpha}_n)
 
 **线性相关与无关**
 
-设 $V$ 是域 $K$ 上的线性空间。
+设 $V$ 是域 $\mathbb{K}$ 上的线性空间。
 
 - $V$ 的一个有限子集 $\lbrace\alpha_1, \ldots, \alpha_s\rbrace$ 称为**线性相关/无关** $\Longleftrightarrow$ $\alpha_1, \ldots, \alpha_s$ **线性相关相关/无关**。
 - $V$ 的一个无限子集 $S$ 称为**线性相关** $\Longleftrightarrow$  $S$ 中存在一个有限子集线性相关
@@ -354,7 +354,7 @@ $\displaystyle \text{Span}(\boldsymbol{\alpha}_1, \ldots, \boldsymbol{\alpha}_n)
 
 **基**
 
-设 $V$ 是域 $K$ 上的线性空间。若 $S$（有限或无限子集）  $\subset V$ 同时满足：
+设 $V$ 是域 $\mathbb{K}$ 上的线性空间。若 $S$（有限或无限子集）  $\subset V$ 同时满足：
 
 1. **生成性**： $V$ 中任意一个向量可以由 $S$ 中的有限多个向量线性表出；
 2. **线性无关性**： $S$ 是线性无关的
@@ -369,7 +369,7 @@ $\displaystyle \text{Span}(\boldsymbol{\alpha}_1, \ldots, \boldsymbol{\alpha}_n)
 
 ### 1.c.δ 线性空间的维数
 
-**定义**：设 $V$ 是域 $K$ 上的线性空间。
+**定义**：设 $V$ 是域 $\mathbb{K}$ 上的线性空间。
 
 - 若 $V$ 存在一个有限基，则称 $V$ 为**有限维线性空间**。此时所有基所含向量的个数相同，这个数 $n$ 称为 $V$ 的**维数**，记作 $\dim V=n$。
 
@@ -399,7 +399,7 @@ $\displaystyle \text{Span}(\boldsymbol{\alpha}_1, \ldots, \boldsymbol{\alpha}_n)
 
 $$v = a_1 e_1 + a_2 e_2 + \dots + a_n e_n,$$
 
-其中 $a_1, \dots, a_n \in K$。将向量 $v$ 在基 ${e_1, \dots, e_n}$ 下的系数组成的 $n$ 维列向量
+其中 $a_1, \dots, a_n \in \mathbb{K}$。将向量 $v$ 在基 ${e_1, \dots, e_n}$ 下的系数组成的 $n$ 维列向量
 
 $${e} = \begin{bmatrix} a_1 \\ a_2 \\ \vdots \\ a_n \end{bmatrix}$$
 
@@ -411,7 +411,7 @@ $${e} = \begin{bmatrix} a_1 \\ a_2 \\ \vdots \\ a_n \end{bmatrix}$$
 
 ### 1.c.ε 子空间的交与并
 
-**定义**：设 $V$ 是域 $K$ 上的线性空间，$U, W \subseteq V$ 为 $V$ 的两个子空间。
+**定义**：设 $V$ 是域 $\mathbb{K}$ 上的线性空间，$U, W \subseteq V$ 为 $V$ 的两个子空间。
 
 - **交**：$U \cap W = \lbrace v \in V \mid v \in U \text{ 且 } v \in W \rbrace$，仍然是 $V$ 的子空间。
 - **并**：$U \cap W = \lbrace v \in V \mid v \in U \text{ 或 } v \in W \rbrace$ 不一定是 $V$ 的子空间，因为 $U \cup W$ 未必对加法封闭。
