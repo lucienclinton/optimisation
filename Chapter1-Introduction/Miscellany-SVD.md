@@ -80,7 +80,7 @@ $\because\displaystyle \sum_{i=1}^k c_i u_i = 0\Longrightarrow c_j=0,\quad \fora
 
 **矩阵的秩与几何重数的总和没有直接关系**
 
-![01e-几何重数与代数重数的关系.jpg](../images/01e-几何重数与代数重数的关系.jpg)
+![01e-几何重数与代数重数的关系.svg](../images/01e-几何重数与代数重数的关系.jpg)
 
 ## 2.b 相似对角化Similar Diagonalization (SD) /特征值分解Eigen-Value Decomposition (EVD)
 
